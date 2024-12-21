@@ -1,0 +1,65 @@
+name: doctor
+description: "A new Flutter project."
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  get: ^4.6.6
+  flutter_screenutil:
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^4.0.0
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/
+    - assetsSVG/
+
+  fonts:
+    - family: BarlowSemiCondensed
+      fonts:
+        - asset: Font/BarlowSemiCondensed/BarlowSemiCondensed-ExtraBold.ttf
+          weight: 900
+        - asset: Font/BarlowSemiCondensed/BarlowSemiCondensed-ExtraBoldItalic.ttf
+          weight: 900
+          style: italic
+        - asset: Font/BarlowSemiCondensed/BarlowSemiCondensed-Bold.ttf
+          weight: 800
+        - asset: Font/BarlowSemiCondensed/BarlowSemiCondensed-SemiBold.ttf
+          weight: 700
+          style: italic
+        - asset: Font/BarlowSemiCondensed/BarlowSemiCondensed-SemiBoldItalic.ttf
+          weight: 700
+        - asset: Font/BarlowSemiCondensed/BarlowSemiCondensed-MediumItalic.ttf
+          weight: 600
+          style: italic
+        - asset: Font/BarlowSemiCondensed/BarlowSemiCondensed-Medium.ttf
+          weight: 600
+        - asset: Font/BarlowSemiCondensed/BarlowSemiCondensed-ExtraLight.ttf
+          weight: 400
+        - asset: Font/BarlowSemiCondensed/BarlowSemiCondensed-ExtraLightItalic.ttf
+          weight: 400
+          style: italic
+        - asset: Font/BarlowSemiCondensed/BarlowSemiCondensed-Thin.ttf
+          weight: 300
+        - asset: Font/BarlowSemiCondensed/BarlowSemiCondensed-ThinItalic.ttf
+          weight: 300
+          style: italic
+        - asset: Font/BarlowSemiCondensed/BarlowSemiCondensed-Italic.ttf
+          style: italic
