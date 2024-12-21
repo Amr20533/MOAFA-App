@@ -3,6 +3,7 @@ class AppRoutes{
   static const String welcome = '/';
   static const String userHomePage = '/user-home';
   static const String userLogin = '/user-login';
+  static const String userSignup = '/user-signup';
 
 
 }

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 class MyStyles {
   static final Color blueColor = Color(0xff3058a6);
+  static final Color deepBlueColor = Color(0xFF32519D);
+  static final Color lightMaybeCyanColor = Color(0xFF88B6FF);
   static final Color blackColor = Color(0xff0b0d0e);
   static final Color whiteColor = Colors.white;
   static final Color cyanColor = Color(0xffcce3ff);
@@ -48,7 +50,17 @@ class MyStyles {
         color: c,
       );
   static TextStyle buttonsize(Color c) => TextStyle(
-        fontSize: 28,
+        fontSize: 24,
+        fontFamily: 'BarlowSemiCondensed',
+        fontWeight: FontWeight.w900,
         color: c,
       );
+
+  ButtonStyle welcomeButtonsStyle = ElevatedButton.styleFrom(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      minimumSize: const Size(0, 30.0),
+      backgroundColor: const Color.fromARGB(255, 255, 255, 255));
+
+
 }
+
