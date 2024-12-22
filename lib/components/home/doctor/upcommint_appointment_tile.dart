@@ -1,3 +1,4 @@
+import 'package:doctor/components/reusable/default_call_button.dart';
 import 'package:doctor/utils/helpers/format_helper.dart';
 import 'package:doctor/utils/static/app_icons.dart';
 import 'package:doctor/utils/styles/used_styles.dart';
@@ -33,15 +34,7 @@ class UpcomingAppointmentTile extends StatelessWidget {
                     children: [
                       Text("Mahmoud Mostafa", style: Theme.of(context).textTheme.titleLarge!.copyWith(fontSize: 18),),
                       SizedBox(width: 12.w),
-                      CircleAvatar(
-                        backgroundColor: MyStyles.maybeCyanColor,
-                        radius: 10.sp,
-                        child: Icon(
-                          AppIcons.call,
-                          color: MyStyles.whiteColor,
-                          size: 12.sp,
-                        ),
-                      ),
+                      DefaultCallButton(onTap: (){},),
                     ],
                   ),
                   Text("Follow Up Consultation", style: Theme.of(context).textTheme.titleMedium!.copyWith(fontSize: 12)),
@@ -98,3 +91,4 @@ class UpcomingAppointmentTile extends StatelessWidget {
     );
   }
 }
+

@@ -9,12 +9,9 @@ class DefaultTitle extends StatelessWidget {
   final String title;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 28.w),
-      child: Text(
-        title,
-        style: Theme.of(context).textTheme.titleLarge!.copyWith(fontSize: 18.sp),
-      ),
+    return Text(
+      title,
+      style: Theme.of(context).textTheme.titleLarge!.copyWith(fontSize: 18.sp),
     );
   }
 }

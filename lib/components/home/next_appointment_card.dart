@@ -99,7 +99,7 @@ class NextAppointmentCard extends StatelessWidget {
                         children: [
                           Text(
                             FormatHelper.formatAppointmentTime(DateTime.now().toString()),
-                            style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 18.sp, color: Colors.white),
+                            style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 16.sp, color: Colors.white),
                           ),
                           Text(
                             ' ${FormatHelper.formatDayOrNight(DateTime.now().toString())}',

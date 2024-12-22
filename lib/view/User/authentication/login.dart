@@ -1,11 +1,12 @@
 import 'package:doctor/components/reusable/textFieldsLoginSignup.dart';
+import 'package:doctor/core/controllers/authentication/login_controller.dart';
 import 'package:doctor/utils/styles/used_styles.dart';
 import 'package:doctor/view/User/authentication/signup.dart';
 import 'package:doctor/view/User/home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class LogInScreen extends StatelessWidget {
+class LogInScreen extends GetView<LoginController> {
   const LogInScreen({super.key});
 
   @override
@@ -85,8 +86,26 @@ class LogInScreen extends StatelessWidget {
                   Padding(padding: EdgeInsets.fromLTRB(0, 0, 800, 0)),
                   Text("Please login or Sign up to continue",
                       style: MyStyles.notessize(MyStyles.grey)),
-                  myFormField('Email or Phone', false),
-                  myFormField('Password', true),
+                  Obx(() => DefaultTextFormField(
+                    controller: controller.email.value,
+                    label: 'Email or Phone',
+                    keyboardType: TextInputType.emailAddress,
+                  )),
+                  Obx(() {
+                    bool secure = controller.secure.value == true;
+                    return DefaultTextFormField(
+                      controller: controller.password.value,
+                      label: 'Password',
+                      secure: controller.secure.value,
+                      suffixIcon: GestureDetector(
+                        onTap: (){
+                          controller.toggleSecurePassword();
+                        },
+                        child: Icon(secure ? Icons.visibility : Icons.visibility_off, color: MyStyles.grey,),
+                      ),
+                      keyboardType:TextInputType.visiblePassword,
+                    );
+                  }),
                   SizedBox(height: 20),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(200, 0, 5, 0),

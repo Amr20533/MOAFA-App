@@ -1,5 +1,7 @@
+import 'package:doctor/core/controllers/doctor_controllers/appointments_controller.dart';
 import 'package:doctor/core/dependencies/app_bindings.dart';
 import 'package:doctor/utils/static/app_routes.dart';
+import 'package:doctor/view/Doctor/appointment/patient_details_screen.dart';
 import 'package:doctor/view/Doctor/authentication/doctor_login.dart';
 import 'package:doctor/view/Doctor/authentication/doctor_signup.dart';
 import 'package:doctor/view/Doctor/doctor_main_view.dart';
@@ -23,5 +25,8 @@ List<GetPage<dynamic>>? userGetPageRoutes = [
   GetPage(name: AppRoutes.doctorLogin, page: () => DoctorLoginScreen()),
   GetPage(name: AppRoutes.doctorSignup, page: () => DoctorSingUpScreen()),
   GetPage(name: AppRoutes.doctorMainView, page: () => DoctorMainView()),
+  GetPage(name: AppRoutes.patientDetails, page: () => PatientDetailsScreen(),
+  binding: BindingsBuilder(() => Get.lazyPut(()=> AppointmentsController()))
+  ),
 
 ];

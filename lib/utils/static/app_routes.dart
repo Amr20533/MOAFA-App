@@ -6,9 +6,11 @@ class AppRoutes{
   static const String userSignup = '/user-signup';
   static const String addPill = '/user-add-pill';
 
+  /// <<<<<<<<<<<<<<<<<<<<<<< Doctor Routes >>>>>>>>>>>>>>>>>>>>>
   static const String doctorLogin = '/doctor-login';
   static const String doctorSignup = '/doctor-signup';
   static const String doctorMainView = '/doctor-home';
+  static const String patientDetails = '/doctor-patient-details';
 
 
 }

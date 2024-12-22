@@ -6,9 +6,6 @@ import 'package:doctor/components/reusable/default_switch_button.dart';
 import 'package:doctor/components/reusable/default_title.dart';
 import 'package:doctor/core/controllers/doctor_controllers/availability_controller.dart';
 import 'package:doctor/utils/data/week_days.dart';
-import 'package:doctor/utils/helpers/format_helper.dart';
-import 'package:doctor/utils/static/app_icons.dart';
-import 'package:doctor/utils/styles/used_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -63,7 +60,10 @@ class DoctorAvailabilityScreen extends GetView<AvailabilityController> {
             ],
           ),
         ),
-        DefaultTitle(title: 'Slots'),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 28.w,),
+          child: DefaultTitle(title: 'Slots'),
+        ),
         ListView.separated(
             itemCount: 5,
             shrinkWrap: true,
