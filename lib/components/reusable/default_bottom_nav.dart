@@ -31,7 +31,6 @@ class DefaultBottomNav extends GetView<MainViewController> {
                   height: 40.w,
                   duration: const Duration(milliseconds: 400),
                   curve: Curves.easeInOut,
-                  // alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: selected ? MyStyles.maybeCyanColor : Colors.white,
                     shape: BoxShape.circle,

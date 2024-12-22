@@ -26,8 +26,8 @@ class MainViewController extends GetxController{
   final List<IconData> bottomIcons = [
     FontAwesomeIcons.house,
     Icons.paste_rounded,
-    Icons.monitor_heart_outlined,
-    FontAwesomeIcons.user,
+    FontAwesomeIcons.solidHeart,
+    FontAwesomeIcons.solidUser,
   ];
 
 

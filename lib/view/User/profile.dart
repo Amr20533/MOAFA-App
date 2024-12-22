@@ -1,4 +1,5 @@
-import 'package:doctor/view/User/vitals.dart';
+import 'package:doctor/components/profile/info_card.dart';
+import 'package:doctor/components/profile/menu_item.dart';
 import 'package:flutter/material.dart';
 import 'package:doctor/utils/styles/used_styles.dart';
 import 'package:get/get.dart';
@@ -37,10 +38,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     child: Row(
                       children: [
                         Expanded(
-                          child: _infoCard(
-                            "Vitals",
-                            ["Weight", "Pulse"],
-                            ["70 KG", "70 BPM"],
+                          child: InfoCard(
+                            title: "Vitals",
+                            labels:["Weight", "Pulse"],
+                            values:["70 KG", "70 BPM"],
                           ),
                         ),
                       ],
@@ -51,10 +52,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     child: Row(
                       children: [
                         Expanded(
-                          child: _infoCard(
-                            "Allergies",
-                            ["Peanut Allergy", "Perfume Allergy"],
-                            ["", ""],
+                          child: InfoCard(
+                            title: "Allergies",
+                            labels:["Peanut Allergy", "Perfume Allergy"],
+                            values:["", ""],
                           ),
                         ),
                       ],
@@ -67,10 +68,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
             SizedBox(height: 20),
 
             // Menu Items
-            _menuItem("Appointments"),
-            _menuItem("Medications"),
-            _menuItem("Medical History"),
-            _menuItem("Family"),
+            MenuItem(onTap: (){}, title: "Appointments"),
+            MenuItem(onTap: (){}, title: "Medical History"),
+            MenuItem(onTap: (){}, title: "Family"),
+            MenuItem(onTap: (){}, title: "Medications"),
 
             SizedBox(height: 10),
 
@@ -150,62 +151,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   // Reusable Card Widget
-  Widget _infoCard(String title, List<String> labels, List<String> values) {
-    return Card(
-      elevation: 3,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-      child: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                Text(title, style: MyStyles.Datasize(MyStyles.blackColor)),
-                Spacer(),
-                IconButton(
-                  onPressed: () {
-                    Get.to(() => VitalScreen());
-                  },
-                  icon: Icon(Icons.arrow_forward_ios_rounded),
-                ),
-              ],
-            ),
-            SizedBox(height: 10),
-            ...List.generate(
-              labels.length,
-              (index) => Padding(
-                padding: const EdgeInsets.symmetric(vertical: 5),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(labels[index]),
-                    Text(
-                      values[index],
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                ),
-              ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
 
   // Menu Item Widget
-  Widget _menuItem(String title) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-      child: Card(
-        elevation: 1,
-        child: ListTile(
-          title: Text(title, style: TextStyle(fontWeight: FontWeight.bold)),
-          trailing: Icon(Icons.arrow_forward_ios),
-          onTap: () {},
-        ),
-      ),
-    );
-  }
 }
