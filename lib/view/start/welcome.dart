@@ -65,16 +65,16 @@ class WelcomeScreen extends StatelessWidget {
                 children: [
                   MyButton(
                     onPressed: () {
-                    // Get.toNamed(AppRoutes.doctorLogin);
-                    Get.toNamed(AppRoutes.userLogin);
+                    Get.toNamed(AppRoutes.doctorLogin);
+                    // Get.toNamed(AppRoutes.userLogin);
                   },
                     style: MyStyles().welcomeButtonsStyle,
                    title:  'LOGIN',
                   ),
                   MyButton(
                     onPressed: () {
-                    // Get.toNamed(AppRoutes.doctorSignup);
-                    Get.toNamed(AppRoutes.userSignup);
+                    Get.toNamed(AppRoutes.doctorSignup);
+                    // Get.toNamed(AppRoutes.userSignup);
                   },
                     style: MyStyles().welcomeButtonsStyle,
                    title:  'SING UP',

@@ -1,3 +1,8 @@
+import 'package:doctor/utils/static/app_icons.dart';
+import 'package:doctor/view/Doctor/appointment/doctor_appointment_screen.dart';
+import 'package:doctor/view/Doctor/availability/doctor_availability_screen.dart';
+import 'package:doctor/view/Doctor/home/doctor_home_screen.dart';
+import 'package:doctor/view/Doctor/profile/doctor_profile_screen.dart';
 import 'package:doctor/view/User/add_pill.dart';
 import 'package:doctor/view/User/profile.dart';
 import 'package:doctor/view/User/reports.dart';
@@ -23,11 +28,26 @@ class MainViewController extends GetxController{
     ProfileScreen(),
   ];
 
+  final List<Widget> doctorViews = [
+    DoctorHomeScreen(),
+    DoctorAppointmentScreen(),
+    DoctorAvailabilityScreen(),
+    DoctorProfileScreen(),
+  ];
+
   final List<IconData> bottomIcons = [
+    AppIcons.home,
+    AppIcons.file_medical_alt,
+    AppIcons.pulse,
+    Icons.person,
+  ];
+
+ final List<IconData> doctorBottomIcons = [
     FontAwesomeIcons.house,
-    Icons.paste_rounded,
-    FontAwesomeIcons.solidHeart,
-    FontAwesomeIcons.solidUser,
+    AppIcons.calendar_alt,
+    AppIcons.clock,
+   // FontAwesomeIcons.solidClock,
+   FontAwesomeIcons.solidUser,
   ];
 
 

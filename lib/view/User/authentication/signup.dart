@@ -1,11 +1,12 @@
 import 'package:doctor/components/reusable/textFieldsLoginSignup.dart';
+import 'package:doctor/core/controllers/authentication/sign_up_controller.dart';
 import 'package:doctor/utils/styles/used_styles.dart';
 import 'package:doctor/view/User/authentication/login.dart';
 import 'package:doctor/view/User/home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class SingUpScreen extends StatelessWidget {
+class SingUpScreen extends GetView<SignUpController> {
   const SingUpScreen({super.key});
 
   @override
@@ -88,10 +89,39 @@ class SingUpScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  myFormField('National ID', false),
-                  myFormField('Email', false),
-                  myFormField('Phone Number', false),
-                  myFormField('Password', true),
+
+                  Obx(() => DefaultTextFormField(
+                    controller: controller.nId.value,
+                    label: 'National ID',
+                    keyboardType: TextInputType.number,
+                  )),
+
+                  Obx(() => DefaultTextFormField(
+                    controller: controller.email.value,
+                    label: 'Email or Phone',
+                    keyboardType: TextInputType.emailAddress,
+                  )),
+
+                  Obx(() => DefaultTextFormField(
+                    controller: controller.phone.value,
+                    label: 'Phone Number',
+                    keyboardType: TextInputType.phone,
+                  )),
+                  Obx(() {
+                    bool secure = controller.secure.value == true;
+                    return DefaultTextFormField(
+                      controller: controller.password.value,
+                      label: 'Password',
+                      secure: controller.secure.value,
+                      suffixIcon: GestureDetector(
+                        onTap: (){
+                          controller.toggleSecurePassword();
+                        },
+                        child: Icon(secure ? Icons.visibility : Icons.visibility_off, color: MyStyles.grey,),
+                      ),
+                      keyboardType:TextInputType.visiblePassword,
+                    );
+                  }),
                   SizedBox(height: 20),
                   Padding(
                     padding: const EdgeInsets.all(8.0),

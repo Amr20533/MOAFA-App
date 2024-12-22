@@ -9,6 +9,10 @@ class MyStyles {
   static final Color cyanColor = Color(0xffcce3ff);
   static final Color maybeCyanColor = Color(0xff5689d6);
   static final Color grey = Color(0xff687483);
+  static final Color secGrey = Color(0xFF9A9A9C);
+  static final Color red = Color(0xFFFF0000);
+  static final Color secLightGrey = Color(0xFFF7F7F7);
+  static final Color greyTextColor = Color(0xFFF7F7F80);
   static final Color lightBlue = Colors.lightBlueAccent;
   static final Color Lightgrey = Color(0xfff5F6F9);
 
