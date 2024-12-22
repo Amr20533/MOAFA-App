@@ -13,9 +13,9 @@ ThemeData get lightTheme => ThemeData(
       fontWeight: FontWeight.w800,
     ),
     titleMedium: TextStyle(
-      fontSize: 24,
+      fontSize: 18,
       fontFamily: 'BarlowSemiCondensed',
-      fontWeight: FontWeight.w800,
+      fontWeight: FontWeight.w600,
     ),
   ),
 );

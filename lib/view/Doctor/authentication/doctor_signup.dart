@@ -1,7 +1,6 @@
 import 'package:doctor/components/reusable/textFieldsLoginSignup.dart';
+import 'package:doctor/utils/static/app_routes.dart';
 import 'package:doctor/utils/styles/used_styles.dart';
-import 'package:doctor/view/User/authentication/login.dart';
-import 'package:doctor/view/User/home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -97,7 +96,7 @@ class DoctorSingUpScreen extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: ElevatedButton(
                       onPressed: () {
-                        Get.to(HomeScreen());
+
                       },
                       child: Text(
                         "Signup",
@@ -124,7 +123,7 @@ class DoctorSingUpScreen extends StatelessWidget {
                     ),
                     TextButton(
                         onPressed: () {
-                          Get.to(LogInScreen());
+                          Get.offNamed(AppRoutes.doctorLogin);
                         },
                         child: Text('Sign in',
                             style: MyStyles.notessize(MyStyles.blueColor))),

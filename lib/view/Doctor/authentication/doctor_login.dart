@@ -124,7 +124,7 @@ class DoctorLoginScreen extends StatelessWidget {
                     Text('Don`t have an account? '),
                     TextButton(
                         onPressed: () {
-                          Get.to(SingUpScreen());
+                          Get.offNamed(AppRoutes.doctorSignup);
                         },
                         child: Text(
                           'Sign Up',
