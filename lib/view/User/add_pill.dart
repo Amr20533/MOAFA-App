@@ -1,3 +1,4 @@
+import 'package:doctor/components/reusable/default_switch_button.dart';
 import 'package:doctor/utils/styles/used_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -263,18 +264,13 @@ class _PillState extends State<AddPillScreen> {
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ),
-              Switch(
-                value: alarmEnabled,
-                activeColor: MyStyles.whiteColor,
-                activeTrackColor: MyStyles.blueColor,
-                inactiveTrackColor: MyStyles.whiteColor,
-                inactiveThumbColor: MyStyles.grey,
+              DefaultSwitchButton(
                 onChanged: (value) {
                   setState(() {
                     alarmEnabled = value;
                   });
                 },
-              ),
+                value: alarmEnabled,),
             ],
           ),
         ],

@@ -22,6 +22,7 @@ class DoctorHomeScreen extends StatelessWidget {
               itemCount: 6,
               shrinkWrap: true,
               scrollDirection: Axis.vertical,
+              padding: EdgeInsets.only(bottom: 18.h,),
               physics: NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) => UpcomingAppointmentTile(),
               separatorBuilder: (context, _) => SizedBox(height: 18.h,),

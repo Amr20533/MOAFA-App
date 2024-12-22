@@ -68,4 +68,9 @@ ThemeData get lightTheme => ThemeData(
       fontWeight: FontWeight.w300,
     ),
   ),
+
+  appBarTheme: AppBarTheme(
+    backgroundColor: MyStyles.cyanColor,
+    centerTitle: true
+  )
 );

@@ -1,3 +1,4 @@
+import 'package:doctor/components/reusable/default_heading_text.dart';
 import 'package:doctor/utils/helpers/format_helper.dart';
 import 'package:doctor/utils/static/app_icons.dart';
 import 'package:doctor/utils/styles/used_styles.dart';
@@ -16,10 +17,7 @@ class NextAppointmentCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Next Appointment',
-            style: Theme.of(context).textTheme.titleLarge,
-          ),
+          DefaultHeadingText(heading: 'Next Appointment',),
           SizedBox(height: 16.h),
           Container(
             width: double.infinity,
