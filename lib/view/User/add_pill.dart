@@ -69,7 +69,7 @@ class _PillState extends State<AddPillScreen> {
     return Scaffold(
       backgroundColor: MyStyles.whiteColor,
       appBar: AppBar(
-        backgroundColor: MyStyles.maybeCyanColor,
+        backgroundColor: MyStyles.lightMaybeCyanColor,
         leading: IconButton(
           onPressed: () {
             Get.back();
@@ -183,13 +183,17 @@ class _PillState extends State<AddPillScreen> {
         children: [
           Text(
             label,
+            style: MyStyles.buttonsize(Colors.black),
           ),
           SizedBox(height: 8),
           DropdownButtonFormField<String>(
             value: value,
             items: items
-                .map((item) => DropdownMenuItem(value: item, child: Text(item)))
+                .map((item) => DropdownMenuItem(
+                value: item,
+                child: Text(item, style: MyStyles.buttonsize(Colors.black),)))
                 .toList(),
+            dropdownColor: Colors.white,
             onChanged: onChanged,
             decoration: InputDecoration(
               fillColor: MyStyles.whiteColor,
@@ -261,6 +265,10 @@ class _PillState extends State<AddPillScreen> {
               ),
               Switch(
                 value: alarmEnabled,
+                activeColor: MyStyles.whiteColor,
+                activeTrackColor: MyStyles.blueColor,
+                inactiveTrackColor: MyStyles.whiteColor,
+                inactiveThumbColor: MyStyles.grey,
                 onChanged: (value) {
                   setState(() {
                     alarmEnabled = value;

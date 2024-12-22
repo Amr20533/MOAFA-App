@@ -24,20 +24,19 @@ class WelcomeScreen extends StatelessWidget {
           // Image.asset("assets/Asset 10@10x.png"),
           Column(
             children: [
-              // const Spacer(),
-              SizedBox(height: 22.h,),
+              const Spacer(flex: 1,),
               Image.asset(
                 "assets/Asset 11@10x.png",
                 scale: 2.4,
               ),
               const Spacer(
-                flex: 2,
+                flex: 4,
               )
             ],
           ),
 
           Positioned(
-            bottom: - 550.h,
+            bottom: - 580.h,
               child: CircleAvatar(
                 backgroundColor: MyStyles.deepBlueColor,
                 radius: 450.sp,)),
@@ -54,7 +53,7 @@ class WelcomeScreen extends StatelessWidget {
           Column(
             children: [
               const Spacer(
-                flex: 5,
+                flex: 7,
               ),
               Image.asset(
                 "assets/Asset 5@10x.png",
@@ -66,6 +65,7 @@ class WelcomeScreen extends StatelessWidget {
                 children: [
                   MyButton(
                     onPressed: () {
+                    // Get.toNamed(AppRoutes.doctorLogin);
                     Get.toNamed(AppRoutes.userLogin);
                   },
                     style: MyStyles().welcomeButtonsStyle,
@@ -73,6 +73,7 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                   MyButton(
                     onPressed: () {
+                    // Get.toNamed(AppRoutes.doctorSignup);
                     Get.toNamed(AppRoutes.userSignup);
                   },
                     style: MyStyles().welcomeButtonsStyle,

@@ -1,12 +1,13 @@
 import 'package:doctor/components/reusable/textFieldsLoginSignup.dart';
+import 'package:doctor/utils/static/app_routes.dart';
 import 'package:doctor/utils/styles/used_styles.dart';
 import 'package:doctor/view/User/authentication/signup.dart';
 import 'package:doctor/view/User/home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class LogInScreen extends StatelessWidget {
-  const LogInScreen({super.key});
+class DoctorLoginScreen extends StatelessWidget {
+  const DoctorLoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -99,14 +100,15 @@ class LogInScreen extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: ElevatedButton(
                       onPressed: () {
-                        Get.to(HomeScreen());
+                        Get.toNamed(AppRoutes.doctorMainView);
                       },
                       child: Text(
-                        "Signin",
+                        "LOGIN",
                         style: TextStyle(
                             fontSize: 25,
                             color: Colors.white,
-                            fontWeight: FontWeight.bold),
+                            fontWeight: FontWeight.bold
+                        ),
                       ),
                       style: ElevatedButton.styleFrom(
                         minimumSize: Size(
@@ -116,7 +118,9 @@ class LogInScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
                     Text('Don`t have an account? '),
                     TextButton(
                         onPressed: () {

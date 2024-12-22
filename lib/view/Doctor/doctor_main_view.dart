@@ -7,8 +7,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
-class HomeScreen extends GetView<MainViewController> {
-  const HomeScreen({super.key});
+class DoctorMainView extends GetView<MainViewController> {
+  const DoctorMainView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,10 +16,8 @@ class HomeScreen extends GetView<MainViewController> {
     return Scaffold(
       body: Obx(() => controller.userViews[controller.currentScreen.value]),
 
-      // Bottom Navigation Bar
       bottomNavigationBar: DefaultBottomNav(),
 
-      // Floating Action Button
       floatingActionButton: FloatingActionButton(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(100),

@@ -17,7 +17,7 @@ class MyButton extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Text(
             title,
-            style: MyStyles.buttonsize(MyStyles.blueColor),
+            style: MyStyles.welcomeButtonSize(MyStyles.blueColor),
           ),
         ));
   }

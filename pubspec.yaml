@@ -15,7 +15,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   get: ^4.6.6
   flutter_screenutil:
-
+  font_awesome_flutter:
 
 dev_dependencies:
   flutter_test:
@@ -63,3 +63,8 @@ flutter:
           style: italic
         - asset: Font/BarlowSemiCondensed/BarlowSemiCondensed-Italic.ttf
           style: italic
+
+#    - family: FontAwesome
+#      fonts:
+#        - asset: Icons/Font_Awesome/Font-Awesome-6-Free-Solid-900.ttf
+#          weight: 900

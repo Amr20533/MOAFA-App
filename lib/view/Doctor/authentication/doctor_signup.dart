@@ -5,8 +5,8 @@ import 'package:doctor/view/User/home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class SingUpScreen extends StatelessWidget {
-  const SingUpScreen({super.key});
+class DoctorSingUpScreen extends StatelessWidget {
+  const DoctorSingUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

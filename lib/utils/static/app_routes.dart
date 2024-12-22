@@ -4,6 +4,11 @@ class AppRoutes{
   static const String userHomePage = '/user-home';
   static const String userLogin = '/user-login';
   static const String userSignup = '/user-signup';
+  static const String addPill = '/user-add-pill';
+
+  static const String doctorLogin = '/doctor-login';
+  static const String doctorSignup = '/doctor-signup';
+  static const String doctorMainView = '/doctor-home';
 
 
 }

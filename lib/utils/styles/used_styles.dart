@@ -50,6 +50,13 @@ class MyStyles {
         color: c,
       );
   static TextStyle buttonsize(Color c) => TextStyle(
+        fontSize: 16,
+        fontFamily: 'BarlowSemiCondensed',
+        fontWeight: FontWeight.w400,
+        color: c,
+      );
+
+  static TextStyle welcomeButtonSize(Color c) => TextStyle(
         fontSize: 24,
         fontFamily: 'BarlowSemiCondensed',
         fontWeight: FontWeight.w900,
