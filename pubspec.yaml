@@ -16,6 +16,9 @@ dependencies:
   get: ^4.6.6
   flutter_screenutil:
   font_awesome_flutter:
+  intl:
+  svg_flutter:
+  cached_network_image:
 
 dev_dependencies:
   flutter_test:
@@ -64,7 +67,6 @@ flutter:
         - asset: Font/BarlowSemiCondensed/BarlowSemiCondensed-Italic.ttf
           style: italic
 
-#    - family: FontAwesome
-#      fonts:
-#        - asset: Icons/Font_Awesome/Font-Awesome-6-Free-Solid-900.ttf
-#          weight: 900
+    - family: MyFlutterApp
+      fonts:
+        - asset: Icon/MyFlutterApp.ttf

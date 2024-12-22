@@ -16,7 +16,7 @@ class DefaultBottomNav extends GetView<MainViewController> {
       width: double.infinity,
       decoration: BoxDecoration(
           color: MyStyles.whiteColor,
-          border: Border(top: BorderSide(width: 1, color: MyStyles.grey))
+          border: Border(top: BorderSide(width: 1, color: MyStyles.cyanColor))
       ),
       child: Obx(() => Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -35,7 +35,7 @@ class DefaultBottomNav extends GetView<MainViewController> {
                     color: selected ? MyStyles.maybeCyanColor : Colors.white,
                     shape: BoxShape.circle,
                   ),
-                  child: Icon(controller.bottomIcons[index],color: selected ? Colors.white : MyStyles.maybeCyanColor, size: selected ? 18.sp : 20.sp)),
+                  child: Icon(controller.doctorBottomIcons[index],color: selected ? Colors.white : MyStyles.maybeCyanColor, size: selected ? 22.sp : 20.sp)),
             );
           }
           )

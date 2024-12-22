@@ -14,7 +14,7 @@ class DoctorMainView extends GetView<MainViewController> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      body: Obx(() => controller.userViews[controller.currentScreen.value]),
+      body: SafeArea(child: Obx(() => controller.doctorViews[controller.currentScreen.value])),
 
       bottomNavigationBar: DefaultBottomNav(),
 
@@ -25,7 +25,7 @@ class DoctorMainView extends GetView<MainViewController> {
         onPressed: () {
           Get.toNamed(AppRoutes.addPill);
         },
-        backgroundColor: MyStyles.deepBlueColor,
+        backgroundColor: MyStyles.blueColor,
         child: Icon(FontAwesomeIcons.plus, color: Colors.white,size: 27.sp,),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

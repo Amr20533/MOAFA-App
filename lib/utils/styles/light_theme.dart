@@ -7,15 +7,65 @@ ThemeData get lightTheme => ThemeData(
     color: Colors.white
   ),
   textTheme: TextTheme(
-    titleLarge: TextStyle(
-      fontSize: 24,
+    headlineLarge: TextStyle(
+      fontSize: 38,
+      fontFamily: 'BarlowSemiCondensed',
+      fontWeight: FontWeight.w900,
+    ),
+    headlineMedium: TextStyle(
+      fontSize: 36,
       fontFamily: 'BarlowSemiCondensed',
       fontWeight: FontWeight.w800,
+    ),
+    headlineSmall: TextStyle(
+      fontSize: 34,
+      fontFamily: 'BarlowSemiCondensed',
+      fontWeight: FontWeight.w800,
+    ),
+    displayLarge: TextStyle(
+      fontSize: 32,
+      fontFamily: 'BarlowSemiCondensed',
+      fontWeight: FontWeight.w900,
+    ),
+    displayMedium: TextStyle(
+      fontSize: 30,
+      fontFamily: 'BarlowSemiCondensed',
+      fontWeight: FontWeight.w800,
+    ),
+    displaySmall: TextStyle(
+      fontSize: 28,
+      fontFamily: 'BarlowSemiCondensed',
+      fontWeight: FontWeight.w800,
+    ),
+    bodyLarge: TextStyle(
+      fontSize: 26,
+      fontFamily: 'BarlowSemiCondensed',
+      fontWeight: FontWeight.w800,
+    ),
+    bodyMedium: TextStyle(
+      fontSize: 24,
+      fontFamily: 'BarlowSemiCondensed',
+      fontWeight: FontWeight.w700,
+    ),
+    bodySmall: TextStyle(
+      fontSize: 22,
+      fontFamily: 'BarlowSemiCondensed',
+      fontWeight: FontWeight.w600,
+    ),
+    titleLarge: TextStyle(
+      fontSize: 20,
+      fontFamily: 'BarlowSemiCondensed',
+      fontWeight: FontWeight.w500,
     ),
     titleMedium: TextStyle(
       fontSize: 18,
       fontFamily: 'BarlowSemiCondensed',
-      fontWeight: FontWeight.w600,
+      fontWeight: FontWeight.w400,
+    ),
+    titleSmall: TextStyle(
+      fontSize: 16,
+      fontFamily: 'BarlowSemiCondensed',
+      fontWeight: FontWeight.w300,
     ),
   ),
 );
