@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'MOAFA App',
           theme: lightTheme,
-          // initialBinding: AppBindings(),
+          initialBinding: AppBindings(),
           getPages: userGetPageRoutes,
         );
       },
