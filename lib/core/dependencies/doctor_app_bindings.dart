@@ -6,11 +6,10 @@ import 'package:doctor/core/controllers/doctor_controllers/availability_controll
 import 'package:doctor/core/controllers/main/main_view_controller.dart';
 import 'package:get/get.dart';
 
-class AppBindings extends Bindings {
+class DoctorAppBindings extends Bindings {
   @override
   void dependencies() {
-    // Get.put(WelcomeAnimationController());
-    Get.lazyPut<WelcomeAnimationController>(() => WelcomeAnimationController());
+    Get.put<WelcomeAnimationController>(WelcomeAnimationController());
     Get.lazyPut<MainViewController>(() => MainViewController());
     Get.lazyPut<AvailabilityController>(() => AvailabilityController());
     Get.lazyPut<LoginController>(() => LoginController());

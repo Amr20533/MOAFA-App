@@ -17,7 +17,7 @@ class HomeScreen extends GetView<MainViewController> {
       body: Obx(() => controller.userViews[controller.currentScreen.value]),
 
       // Bottom Navigation Bar
-      bottomNavigationBar: DefaultBottomNav(),
+      bottomNavigationBar: DefaultBottomNav(isUser: true,),
 
       // Floating Action Button
       floatingActionButton: FloatingActionButton(

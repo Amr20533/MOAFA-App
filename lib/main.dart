@@ -1,3 +1,4 @@
+import 'package:doctor/core/dependencies/app_bindings.dart';
 import  'package:doctor/core/router/user_get_page_routes.dart';
 import 'package:doctor/utils/styles/light_theme.dart';
 import 'package:doctor/view/User/blooddonation.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'MOAFA App',
           theme: lightTheme,
+          // initialBinding: AppBindings(),
           getPages: userGetPageRoutes,
         );
       },

@@ -36,7 +36,7 @@ class MainViewController extends GetxController{
   ];
 
   final List<IconData> bottomIcons = [
-    AppIcons.home,
+    FontAwesomeIcons.house,
     AppIcons.file_medical_alt,
     AppIcons.pulse,
     Icons.person,
