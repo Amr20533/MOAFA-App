@@ -2,10 +2,12 @@ import 'package:doctor/components/home/custom_home_header.dart';
 import 'package:doctor/components/home/doctor/upcommint_appointment_tile.dart';
 import 'package:doctor/components/home/next_appointment_card.dart';
 import 'package:doctor/components/home/see_all_bar.dart';
+import 'package:doctor/core/controllers/main/main_view_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
-class DoctorHomeScreen extends StatelessWidget {
+class DoctorHomeScreen extends GetView<MainViewController> {
   const DoctorHomeScreen({super.key});
 
   @override
@@ -17,7 +19,12 @@ class DoctorHomeScreen extends StatelessWidget {
         children: [
           CustomHomeHeader(name: "Dr. Mahmoud",),
           NextAppointmentCard(),
-          SeeAllBar(title: "Upcoming Appointments"),
+          SeeAllBar(
+            title: "Upcoming Appointments",
+            seeAllTap: (){
+              controller.setCurrentIndex = 1;
+            },
+          ),
           ListView.separated(
               itemCount: 6,
               shrinkWrap: true,

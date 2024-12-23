@@ -13,6 +13,8 @@ class MyStyles {
   static final Color red = Color(0xFFFF0000);
   static final Color secLightGrey = Color(0xFFF7F7F7);
   static final Color greyTextColor = Color(0xFFF7F7F80);
+  static final Color bioTextColor = Color(0xFFD0D1D3);
+  static final Color infoTileColor = Color(0xFFF5FAFF);
   static final Color lightBlue = Colors.lightBlueAccent;
   static final Color Lightgrey = Color(0xfff5F6F9);
 

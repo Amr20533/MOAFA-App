@@ -4,9 +4,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SeeAllBar extends StatelessWidget {
   const SeeAllBar({
-    super.key, required this.title,
+    super.key, required this.title, required this.seeAllTap,
   });
   final String title;
+  final VoidCallback seeAllTap;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class SeeAllBar extends StatelessWidget {
             style: Theme.of(context).textTheme.titleLarge,
           ),
           GestureDetector(
-            onTap: (){},
+            onTap: seeAllTap,
             child: Text(
               'See All',
               style: MyStyles.bold12(MyStyles.maybeCyanColor),

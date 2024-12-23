@@ -2,13 +2,14 @@ import 'package:doctor/core/controllers/animation/welcome_animation_controller.d
 import 'package:doctor/core/controllers/authentication/login_controller.dart';
 import 'package:doctor/core/controllers/authentication/sign_up_controller.dart';
 import 'package:doctor/core/controllers/doctor_controllers/appointments_controller.dart';
-import 'package:doctor/core/dependencies/app_bindings.dart';
-import 'package:doctor/core/dependencies/doctor_app_bindings.dart';
+import 'package:doctor/core/controllers/doctor_controllers/doctor_profile_controller.dart';
+import 'package:doctor/core/controllers/main/main_view_controller.dart';
 import 'package:doctor/utils/static/app_routes.dart';
-import 'package:doctor/view/Doctor/appointment/patient_details_screen.dart';
+import 'package:doctor/view/Doctor/patients/patient_details_screen.dart';
 import 'package:doctor/view/Doctor/authentication/doctor_login.dart';
 import 'package:doctor/view/Doctor/authentication/doctor_signup.dart';
 import 'package:doctor/view/Doctor/doctor_main_view.dart';
+import 'package:doctor/view/Doctor/profile/doctor_profile_screen.dart';
 import 'package:doctor/view/User/add_pill.dart';
 import 'package:doctor/view/User/authentication/login.dart';
 import 'package:doctor/view/User/home.dart';
@@ -22,7 +23,9 @@ List<GetPage<dynamic>>? userGetPageRoutes = [
   GetPage(name: AppRoutes.userWelcome, page: () => UserWelcomeScreen(),
     binding: BindingsBuilder(() => Get.lazyReplace(() => WelcomeAnimationController())),
   ),
-  GetPage(name: AppRoutes.userHomePage, page: () => HomeScreen()),
+  GetPage(name: AppRoutes.userHomePage, page: () => HomeScreen(),
+    binding: BindingsBuilder(() => Get.lazyReplace(() => MainViewController())),
+  ),
   GetPage(name: AppRoutes.userLogin, page: () => LogInScreen(),
     binding: BindingsBuilder(() => Get.lazyReplace(() => LoginController())),
   ),
@@ -41,9 +44,14 @@ List<GetPage<dynamic>>? userGetPageRoutes = [
   GetPage(name: AppRoutes.doctorSignup, page: () => DoctorSingUpScreen(),
     binding: BindingsBuilder(() => Get.lazyReplace(() => SignUpController())),
   ),
-  GetPage(name: AppRoutes.doctorMainView, page: () => DoctorMainView()),
+  GetPage(name: AppRoutes.doctorMainView, page: () => DoctorMainView(),
+    binding: BindingsBuilder(() => Get.lazyReplace(() => MainViewController())),
+  ),
   GetPage(name: AppRoutes.patientDetails, page: () => PatientDetailsScreen(),
   binding: BindingsBuilder(() => Get.lazyPut(()=> AppointmentsController()))
+  ),
+  GetPage(name: AppRoutes.doctorProfile, page: () => DoctorProfileScreen(),
+  binding: BindingsBuilder(() => Get.lazyReplace(()=> DoctorProfileController()))
   ),
 
 ];

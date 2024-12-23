@@ -12,6 +12,7 @@ class AppRoutes{
   static const String doctorSignup = '/doctor-signup';
   static const String doctorMainView = '/doctor-home';
   static const String patientDetails = '/doctor-patient-details';
+  static const String doctorProfile = '/doctor-profile';
 
 
 }

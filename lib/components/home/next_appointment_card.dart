@@ -1,4 +1,5 @@
 import 'package:doctor/components/reusable/default_heading_text.dart';
+import 'package:doctor/components/reusable/default_network_image.dart';
 import 'package:doctor/utils/helpers/format_helper.dart';
 import 'package:doctor/utils/static/app_icons.dart';
 import 'package:doctor/utils/styles/used_styles.dart';
@@ -33,9 +34,14 @@ class NextAppointmentCard extends StatelessWidget {
                 // top part
                 Row(
                   children: [
-                    CircleAvatar(
-                      backgroundColor: MyStyles.maybeCyanColor,
-                      radius: 20.sp,
+                    Container(
+                      width: 38.w,
+                      height: 38.w,
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                      ),
+                      child: ClipOval(
+                          child: DefaultNetworkImage(imageUrl:  'https://img.freepik.com/free-photo/portrait-professional-medical-worker-posing-picture-with-arms-folded_1098-19293.jpg?t=st=1734883262~exp=1734886862~hmac=b1e9accfacf247599423e037916b2eee90707b024cfddd5af7e196591105844f&w=740',)),
                     ),
                     SizedBox(
                       width: 12.w,
