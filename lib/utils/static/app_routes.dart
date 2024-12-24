@@ -1,10 +1,11 @@
 class AppRoutes{
   /// <<<<<<<<<<<<<<<<<<<<<<< User Routes >>>>>>>>>>>>>>>>>>>>>
   static const String userWelcome = '/';
-  static const String userHomePage = '/user-home';
+  static const String userMainView = '/user-home';
   static const String userLogin = '/user-login';
   static const String userSignup = '/user-signup';
   static const String addPill = '/user-add-pill';
+  static const String bloodSeekers = '/user-blood-seekers';
 
   /// <<<<<<<<<<<<<<<<<<<<<<< Doctor Routes >>>>>>>>>>>>>>>>>>>>>
   static const String doctorWelcome = '/doctor-welcome';

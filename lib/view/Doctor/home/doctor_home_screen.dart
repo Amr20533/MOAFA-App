@@ -1,6 +1,6 @@
 import 'package:doctor/components/home/custom_home_header.dart';
-import 'package:doctor/components/home/doctor/upcommint_appointment_tile.dart';
-import 'package:doctor/components/home/next_appointment_card.dart';
+import 'package:doctor/components/doctor/home/upcommint_appointment_tile.dart';
+import 'package:doctor/components/doctor/home/next_appointment_card.dart';
 import 'package:doctor/components/home/see_all_bar.dart';
 import 'package:doctor/core/controllers/main/main_view_controller.dart';
 import 'package:flutter/material.dart';

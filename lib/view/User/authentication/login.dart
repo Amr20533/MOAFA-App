@@ -1,8 +1,8 @@
 import 'package:doctor/components/reusable/textFieldsLoginSignup.dart';
 import 'package:doctor/core/controllers/authentication/login_controller.dart';
+import 'package:doctor/utils/static/app_routes.dart';
 import 'package:doctor/utils/styles/used_styles.dart';
 import 'package:doctor/view/User/authentication/signup.dart';
-import 'package:doctor/view/User/home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -118,10 +118,10 @@ class LogInScreen extends GetView<LoginController> {
                     padding: const EdgeInsets.all(8.0),
                     child: ElevatedButton(
                       onPressed: () {
-                        Get.to(HomeScreen());
+                        Get.toNamed(AppRoutes.userMainView);
                       },
                       child: Text(
-                        "Signin",
+                        "LOGIN",
                         style: TextStyle(
                             fontSize: 25,
                             color: Colors.white,

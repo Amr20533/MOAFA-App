@@ -1,5 +1,5 @@
 import 'package:doctor/components/doctor/appointments/doc_appointment_calendar.dart';
-import 'package:doctor/components/home/doctor/upcommint_appointment_tile.dart';
+import 'package:doctor/components/doctor/home/upcommint_appointment_tile.dart';
 import 'package:doctor/components/reusable/default_details_header.dart';
 import 'package:doctor/components/reusable/default_title.dart';
 import 'package:doctor/core/controllers/doctor_controllers/appointment_controller.dart';

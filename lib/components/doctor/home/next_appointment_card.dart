@@ -1,3 +1,4 @@
+import 'package:doctor/components/reusable/default_call_button.dart';
 import 'package:doctor/components/reusable/default_heading_text.dart';
 import 'package:doctor/components/reusable/default_network_image.dart';
 import 'package:doctor/utils/helpers/format_helper.dart';
@@ -54,14 +55,10 @@ class NextAppointmentCard extends StatelessWidget {
                       ],
                     ),
                     const Spacer(),
-                    CircleAvatar(
-                      backgroundColor: MyStyles.maybeCyanColor,
-                      radius: 18.sp,
-                      child: Icon(
-                        AppIcons.call,
-                        color: MyStyles.whiteColor,
-                        size: 20,
-                      ),
+                    DefaultCallButton(
+                      onTap: (){},
+                      circleSize: 18,
+                      iconSize: 22,
                     ),
                   ],
                 ),

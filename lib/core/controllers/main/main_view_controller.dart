@@ -5,8 +5,9 @@ import 'package:doctor/view/Doctor/home/doctor_home_screen.dart';
 import 'package:doctor/view/Doctor/patients/doctor_patients_screen.dart';
 import 'package:doctor/view/Doctor/profile/doctor_profile_screen.dart';
 import 'package:doctor/view/User/add_pill.dart';
-import 'package:doctor/view/User/profile.dart';
-import 'package:doctor/view/User/reports.dart';
+import 'package:doctor/view/User/home/user_home_screen.dart';
+import 'package:doctor/view/User/profile/profile.dart';
+import 'package:doctor/view/User/reports/reports.dart';
 import 'package:doctor/view/User/vitals.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -23,9 +24,9 @@ class MainViewController extends GetxController{
   }
 
   final List<Widget> userViews = [
-    VitalScreen(),
-    AddPillScreen(),
+    UserHomeScreen(),
     ReportsScreen(),
+    VitalScreen(),
     ProfileScreen(),
   ];
 

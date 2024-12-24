@@ -210,19 +210,19 @@ class VitalScreen extends StatelessWidget {
             children: [
               Text("Categories", style: MyStyles.bold18(MyStyles.blackColor)),
               SizedBox(height: 15),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: SizedBox(
-                  height: screenHeight * 0.15,
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: List.generate(
-                          theCategoriesData.length,
-                              (index) => categoryItemBuilder(
-                              theCategoriesData[index]['name']!,
-                              theCategoriesData[index]['image']!))),
-                ),
-              ),
+              // SingleChildScrollView(
+              //   scrollDirection: Axis.horizontal,
+              //   child: SizedBox(
+              //     height: screenHeight * 0.15,
+              //     child: Row(
+              //         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              //         children: List.generate(
+              //             theCategoriesData.length,
+              //                 (index) => categoryItemBuilder(
+              //                 title:theCategoriesData[index]['name']!,
+              //                 icon: theCategoriesData[index]['image']!))),
+              //   ),
+              // ),
             ],
           ),
         ),
