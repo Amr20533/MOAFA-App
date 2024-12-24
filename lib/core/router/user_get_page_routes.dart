@@ -12,7 +12,8 @@ import 'package:doctor/view/Doctor/doctor_main_view.dart';
 import 'package:doctor/view/Doctor/profile/doctor_profile_screen.dart';
 import 'package:doctor/view/User/add_pill.dart';
 import 'package:doctor/view/User/authentication/login.dart';
-import 'package:doctor/view/User/blood_donation/bloodseekers.dart';
+import 'package:doctor/view/User/blood_donation/blood_donation.dart';
+import 'package:doctor/view/User/blood_donation/blood_seekers.dart';
 import 'package:doctor/view/User/user_main_view.dart';
 import 'package:doctor/view/start/doctor_welcome_screen.dart';
 import 'package:get/get.dart';
@@ -35,6 +36,7 @@ List<GetPage<dynamic>>? userGetPageRoutes = [
   ),
   GetPage(name: AppRoutes.addPill, page: () => AddPillScreen()),
   GetPage(name: AppRoutes.bloodSeekers, page: () => BloodSeekersScreen()),
+  GetPage(name: AppRoutes.bloodDonation, page: () => BloodDonationScreen()),
 
 
   GetPage(name: AppRoutes.doctorWelcome, page: () => DoctorWelcomeScreen(),

@@ -5,8 +5,10 @@ import 'package:doctor/components/home/see_all_bar.dart';
 import 'package:doctor/components/reusable/default_heading_text.dart';
 import 'package:doctor/components/user/user_upcoming_appointment_card.dart';
 import 'package:doctor/utils/data/categorites_data.dart';
+import 'package:doctor/utils/static/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class UserHomeScreen extends StatelessWidget {
   const UserHomeScreen({super.key});
@@ -35,6 +37,9 @@ class UserHomeScreen extends StatelessWidget {
                     (index) {
                   final category = categoriesData[index];
                   return CategoryItemBuilder(
+                    onTap: () {
+                      Get.toNamed(category['route']!);
+                    },
                     title: category['title']!,
                     icon: category['icon']!,
                   );

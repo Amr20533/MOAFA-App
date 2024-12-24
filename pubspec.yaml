@@ -57,6 +57,11 @@ flutter:
           weight: 600
         - asset: Font/BarlowSemiCondensed/BarlowSemiCondensed-ExtraLight.ttf
           weight: 400
+        - asset: Font/BarlowSemiCondensed/BarlowSemiCondensed-Light.ttf
+          weight: 500
+        - asset: Font/BarlowSemiCondensed/BarlowSemiCondensed-LightItalic.ttf
+          weight: 500
+          style: italic
         - asset: Font/BarlowSemiCondensed/BarlowSemiCondensed-ExtraLightItalic.ttf
           weight: 400
           style: italic
