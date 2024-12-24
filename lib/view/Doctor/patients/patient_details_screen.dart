@@ -1,13 +1,13 @@
-import 'package:doctor/components/doctor/appointments/diagnosis_tile.dart';
-import 'package:doctor/components/doctor/appointments/filter_tile.dart';
-import 'package:doctor/components/doctor/appointments/patient_info_header.dart';
-import 'package:doctor/core/controllers/doctor_controllers/appointments_controller.dart';
+import 'package:doctor/components/doctor/patients/diagnosis_tile.dart';
+import 'package:doctor/components/doctor/patients/filter_tile.dart';
+import 'package:doctor/components/doctor/patients/patient_info_header.dart';
+import 'package:doctor/core/controllers/doctor_controllers/patients_controller.dart';
 import 'package:doctor/utils/data/filter_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-class PatientDetailsScreen extends GetView<AppointmentsController> {
+class PatientDetailsScreen extends GetView<PatientsController> {
   const PatientDetailsScreen({super.key});
 
   @override

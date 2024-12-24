@@ -1,6 +1,5 @@
 import 'package:doctor/components/reusable/default_bottom_nav.dart';
 import 'package:doctor/core/controllers/main/main_view_controller.dart';
-import 'package:doctor/utils/static/app_routes.dart';
 import 'package:doctor/utils/styles/used_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -23,7 +22,7 @@ class DoctorMainView extends GetView<MainViewController> {
           borderRadius: BorderRadius.circular(100),
         ),
         onPressed: () {
-          Get.toNamed(AppRoutes.addPill);
+
         },
         backgroundColor: MyStyles.blueColor,
         child: Icon(FontAwesomeIcons.plus, color: Colors.white,size: 27.sp,),

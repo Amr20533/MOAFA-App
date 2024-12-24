@@ -7,8 +7,9 @@ import 'package:get/get.dart';
 class DefaultBottomNav extends GetView<MainViewController> {
   const DefaultBottomNav({
     super.key,
+    this.isUser = false
   });
-
+  final bool isUser;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -35,7 +36,7 @@ class DefaultBottomNav extends GetView<MainViewController> {
                     color: selected ? MyStyles.maybeCyanColor : Colors.white,
                     shape: BoxShape.circle,
                   ),
-                  child: Icon(controller.doctorBottomIcons[index],color: selected ? Colors.white : MyStyles.maybeCyanColor, size: selected ? 22.sp : 20.sp)),
+                  child: Icon(isUser? controller.bottomIcons[index] : controller.doctorBottomIcons[index],color: selected ? Colors.white : MyStyles.maybeCyanColor, size: selected ? 22.sp : 20.sp)),
             );
           }
           )

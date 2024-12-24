@@ -7,17 +7,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
-class HomeScreen extends GetView<MainViewController> {
-  const HomeScreen({super.key});
+class UserMainView extends GetView<MainViewController> {
+  const UserMainView({super.key});
 
   @override
   Widget build(BuildContext context) {
 
     return Scaffold(
-      body: Obx(() => controller.userViews[controller.currentScreen.value]),
+      body: SafeArea(child: Obx(() => controller.userViews[controller.currentScreen.value])),
 
       // Bottom Navigation Bar
-      bottomNavigationBar: DefaultBottomNav(),
+      bottomNavigationBar: DefaultBottomNav(isUser: true,),
 
       // Floating Action Button
       floatingActionButton: FloatingActionButton(

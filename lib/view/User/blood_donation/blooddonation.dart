@@ -1,6 +1,7 @@
 import 'package:doctor/components/reusable/container.dart';
+import 'package:doctor/utils/static/app_routes.dart';
 import 'package:doctor/utils/styles/used_styles.dart';
-import 'package:doctor/view/User/bloodseekers.dart';
+import 'package:doctor/view/User/blood_donation/bloodseekers.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -100,7 +101,7 @@ class _BloodDonationScreenState extends State<BloodDonationScreen> {
               ),
               TextButton(
                 onPressed: () {
-                  Get.to(BloodSeekersScreen());
+                  Get.toNamed(AppRoutes.bloodSeekers);
                 },
                 child: Text(
                   "See All",

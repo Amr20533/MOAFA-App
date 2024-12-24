@@ -1,5 +1,5 @@
-import 'package:doctor/components/doctor/appointments/detected_disease.dart';
-import 'package:doctor/components/doctor/appointments/measured_personal_info.dart';
+import 'package:doctor/components/doctor/patients/detected_disease.dart';
+import 'package:doctor/components/doctor/patients/measured_personal_info.dart';
 import 'package:doctor/components/reusable/default_call_button.dart';
 import 'package:doctor/components/reusable/default_network_image.dart';
 import 'package:doctor/utils/static/app_icons.dart';
@@ -42,7 +42,7 @@ class PatientInfoHeader extends StatelessWidget {
                       shape: BoxShape.circle,
                       border: Border.all(color: MyStyles.blueColor)
                   ),
-                  child: DefaultNetworkImage(imageUrl:  'https://img.freepik.com/free-photo/portrait-professional-medical-worker-posing-picture-with-arms-folded_1098-19293.jpg?t=st=1734883262~exp=1734886862~hmac=b1e9accfacf247599423e037916b2eee90707b024cfddd5af7e196591105844f&w=740',),
+                  child: ClipOval(child: DefaultNetworkImage(imageUrl:  'https://img.freepik.com/free-photo/portrait-professional-medical-worker-posing-picture-with-arms-folded_1098-19293.jpg?t=st=1734883262~exp=1734886862~hmac=b1e9accfacf247599423e037916b2eee90707b024cfddd5af7e196591105844f&w=740',)),
 
                 ),
                 SizedBox(width: 12.w),

@@ -4,7 +4,7 @@ import 'package:doctor/utils/static/app_icons.dart';
 import 'package:doctor/utils/static/app_routes.dart';
 import 'package:doctor/utils/styles/used_styles.dart';
 import 'package:doctor/view/User/authentication/signup.dart';
-import 'package:doctor/view/User/home.dart';
+import 'package:doctor/view/User/user_main_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
