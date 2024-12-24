@@ -1,6 +1,7 @@
 import 'package:doctor/utils/styles/used_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class DefaultDetailsHeader extends StatelessWidget {
   const DefaultDetailsHeader({
@@ -21,7 +22,9 @@ class DefaultDetailsHeader extends StatelessWidget {
       child: Stack(
         alignment: AlignmentDirectional.centerStart,
         children: [
-          Icon(Icons.arrow_back_ios, color: MyStyles.blackColor,),
+          GestureDetector(
+              onTap: ()=> Get.back(),
+              child: Icon(Icons.arrow_back_ios, color: MyStyles.blackColor,)),
           Align(
               alignment: Alignment.center,
               child: Text(title, style: Theme.of(context).textTheme.bodySmall!.copyWith(fontSize: 20.sp),textAlign: TextAlign.center,)),
