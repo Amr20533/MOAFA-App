@@ -1,10 +1,8 @@
-List<String> filterData = [
+
+List<String> filterMedicalHistoryData = [
   'Conditions',
   'Vitals',
   'Allergies',
   'Lab Results',
   'Procedures',
-  'Medications',
-  'Family',
 ];
-
