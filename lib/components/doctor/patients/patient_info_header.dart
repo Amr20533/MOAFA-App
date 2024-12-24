@@ -9,8 +9,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PatientInfoHeader extends StatelessWidget {
   const PatientInfoHeader({
-    super.key,
+    super.key, this.isUser = false,
   });
+  final bool isUser;
 
   @override
   Widget build(BuildContext context) {
@@ -51,11 +52,11 @@ class PatientInfoHeader extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text("Mahmoud Mostafa", style: Theme.of(context).textTheme.titleLarge!.copyWith(fontSize: 18.sp),),
-                    Text("23 Years Old", style: Theme.of(context).textTheme.titleLarge,),
+                    Text("23 Years Old", style: Theme.of(context).textTheme.titleSmall!.copyWith(fontSize: 16.sp),),
                   ],
                 ),
                 Spacer(),
-                DefaultCallButton(
+                isUser ? Container() : DefaultCallButton(
                   onTap: (){},
                   circleSize: 20,
                   iconSize: 22,
