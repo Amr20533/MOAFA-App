@@ -3,5 +3,16 @@ List<String> filterData = [
   'Vitals',
   'Allergies',
   'Lab Results',
-  'Procedures'
+  'Procedures',
+  'Medications',
+  'Family',
+];
+
+
+List<String> filterMedicalHistoryData = [
+  'Conditions',
+  'Vitals',
+  'Allergies',
+  'Lab Results',
+  'Procedures',
 ];

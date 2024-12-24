@@ -19,6 +19,7 @@ dependencies:
   intl:
   svg_flutter:
   cached_network_image:
+  table_calendar:
 
 dev_dependencies:
   flutter_test:

@@ -14,7 +14,7 @@ class ProfileBottomPart extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      margin: EdgeInsets.only(top: MediaQuery.sizeOf(context).height * 0.33),
+      margin: EdgeInsets.only(top: MediaQuery.sizeOf(context).height * 0.35),
       padding: EdgeInsets.symmetric(horizontal: 28.w, vertical: 18.h),
       decoration: BoxDecoration(
           color: MyStyles.whiteColor,
@@ -22,25 +22,20 @@ class ProfileBottomPart extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        spacing: 18.h,
+        spacing: 20.h,
         children: [
           DoctorPersonalInfo(),
           Divider(height: 2.h, color: MyStyles.maybeCyanColor,),
           ExperienceAndPatientsBar(yearsOfExperience: 7, patientsCount: 1500,),
           DefaultHeadingText(heading: "Biography"),
           Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-            style: Theme.of(context).textTheme.titleMedium!.copyWith(color: MyStyles.bioTextColor, fontSize: 14.sp),
+            style: Theme.of(context).textTheme.titleMedium!.copyWith(color: MyStyles.bioTextColor, fontSize: 15.sp),
             maxLines: 5,
             overflow: TextOverflow.ellipsis,
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            spacing: 10.h,
-            children: [
-              DefaultHeadingText(heading: "Availability"),
-              Text("Mon - Sat. 10:00 AM - 07:00 PM", style: Theme.of(context).textTheme.titleLarge!.copyWith(fontSize: 16, color: MyStyles.maybeCyanColor)),
-            ],
-          ),
+          DefaultHeadingText(heading: "Availability"),
+          Text("Mon - Sat. 10:00 AM - 07:00 PM", style: Theme.of(context).textTheme.titleLarge!.copyWith(fontSize: 17, color: MyStyles.maybeCyanColor)),
+
 
         ],
       ),

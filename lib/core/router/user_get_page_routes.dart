@@ -1,7 +1,7 @@
 import 'package:doctor/core/controllers/animation/welcome_animation_controller.dart';
 import 'package:doctor/core/controllers/authentication/login_controller.dart';
 import 'package:doctor/core/controllers/authentication/sign_up_controller.dart';
-import 'package:doctor/core/controllers/doctor_controllers/appointments_controller.dart';
+import 'package:doctor/core/controllers/doctor_controllers/patients_controller.dart';
 import 'package:doctor/core/controllers/doctor_controllers/doctor_profile_controller.dart';
 import 'package:doctor/core/controllers/main/main_view_controller.dart';
 import 'package:doctor/utils/static/app_routes.dart';
@@ -48,7 +48,7 @@ List<GetPage<dynamic>>? userGetPageRoutes = [
     binding: BindingsBuilder(() => Get.lazyReplace(() => MainViewController())),
   ),
   GetPage(name: AppRoutes.patientDetails, page: () => PatientDetailsScreen(),
-  binding: BindingsBuilder(() => Get.lazyPut(()=> AppointmentsController()))
+  binding: BindingsBuilder(() => Get.lazyPut(()=> PatientsController()))
   ),
   GetPage(name: AppRoutes.doctorProfile, page: () => DoctorProfileScreen(),
   binding: BindingsBuilder(() => Get.lazyReplace(()=> DoctorProfileController()))

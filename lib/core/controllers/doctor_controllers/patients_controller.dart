@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-class AppointmentsController extends GetxController{
+class PatientsController extends GetxController{
 
   final RxInt _selectedFilter = 0.obs;
 

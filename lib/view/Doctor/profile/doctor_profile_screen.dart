@@ -45,10 +45,10 @@ class DoctorProfileScreen extends StatelessWidget {
 
             ],
           )),
-      bottomNavigationBar: DefaultBottomNavButton(
-        onTap: (){},
-        title: "Book Appointment",
-      ),
+      // bottomNavigationBar: DefaultBottomNavButton(
+      //   onTap: (){},
+      //   title: "Book Appointment",
+      // ),
     );
   }
 }
