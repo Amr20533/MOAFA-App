@@ -37,4 +37,5 @@ class AppIcons {
   static const IconData vials = IconData(0xf493, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData weight = IconData(0xf496, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData ruler_vertical = IconData(0xf548, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData dropButtonArrow = IconData(0xf078, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

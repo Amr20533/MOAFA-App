@@ -1,280 +1,153 @@
+import 'package:doctor/components/reusable/default_details_header.dart';
 import 'package:doctor/components/reusable/default_switch_button.dart';
+import 'package:doctor/components/user/pill/counter_box.dart';
+import 'package:doctor/components/user/pill/drop_down_box.dart';
+import 'package:doctor/components/user/pill/titled_selection_box.dart';
+import 'package:doctor/components/user/pill/titled_text_field.dart';
+import 'package:doctor/core/controllers/user_controllers/pill_controller.dart';
+import 'package:doctor/utils/data/pill_data/duraitons_data.dart';
+import 'package:doctor/utils/data/pill_data/frequency_data.dart';
+import 'package:doctor/utils/data/pill_data/shapes_data.dart';
 import 'package:doctor/utils/styles/used_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-class AddPillScreen extends StatefulWidget {
+class AddPillScreen extends GetView<PillController> {
   AddPillScreen({super.key});
 
   @override
-  State<AddPillScreen> createState() => _PillState();
-}
-
-class _PillState extends State<AddPillScreen> {
-  String selectedShape = "Tablets";
-  String selectedFrequency = "Every Day";
-  String selectedDuration = "1 Week";
-  int dosagePerTime = 1;
-  int timesPerDay = 1;
-  TimeOfDay selectedTime = TimeOfDay(hour: 13, minute: 00);
-  bool alarmEnabled = true;
-
-  List<String> shapes = ["Tablets", "Capsules", "Syrup", "Injection"];
-  List<String> frequencies = [
-    "Every Day",
-    "Every 6 Hours",
-    "Every 12 Hours",
-    "Every 8 Hours",
-    "Every Week",
-    "Every Month"
-  ];
-  List<String> durations = [
-    "1 Week",
-    "2 Weeks",
-    "1 Month",
-    "6 Months",
-    "1 Year"
-  ];
-
-  void incrementCounter(String type) {
-    setState(() {
-      if (type == "dosage") dosagePerTime++;
-      if (type == "times") timesPerDay++;
-    });
-  }
-
-  void decrementCounter(String type) {
-    setState(() {
-      if (type == "dosage" && dosagePerTime > 1) dosagePerTime--;
-      if (type == "times" && timesPerDay > 1) timesPerDay--;
-    });
-  }
-
-  Future<void> pickTime() async {
-    TimeOfDay? pickedTime = await showTimePicker(
-      context: context,
-      initialTime: selectedTime,
-    );
-    if (pickedTime != null) {
-      setState(() {
-        selectedTime = pickedTime;
-      });
-    }
-  }
-
-  @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: MyStyles.whiteColor,
-      appBar: AppBar(
-        backgroundColor: MyStyles.lightMaybeCyanColor,
-        leading: IconButton(
-          onPressed: () {
-            Get.back();
-          },
-          icon: Icon(Icons.arrow_back_ios_new_rounded),
-        ),
-        title: Text(
-          'Add Pill Schedule',
-          style: MyStyles.bold18(MyStyles.blackColor),
-        ),
-        centerTitle: true,
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.all(screenWidth * 0.04),
+      body: SafeArea(
+        child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            spacing: 20.h,
             children: [
+              DefaultDetailsHeader(title: 'Add Pill Schedule'),
               // Pill Name
-              Text(
-                "Pill Name",
-                style: MyStyles.notessize(MyStyles.grey),
+              TitledTextField(
+                controller: controller.pillName,
+                title: "Pill Name",
+                hintText: "",
               ),
-              SizedBox(height: screenHeight * 0.01),
-              TextFormField(
-                initialValue: "Panadol",
-                decoration: InputDecoration(
-                  fillColor: MyStyles.whiteColor,
-                  filled: true,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-              ),
-              SizedBox(height: screenHeight * 0.02),
-
               // Shape and Frequency
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  buildDropdown("Shape", selectedShape, shapes, (value) {
-                    setState(() => selectedShape = value!);
-                  }),
-                  SizedBox(
-                    width: screenWidth * 0.02,
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 28.w),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                  TitledSelectionBox(
+                    title: "Shape",
+                    child: Obx(()=> DropDownBox(
+                        value: controller.selectedShape.value,
+                        items: shapesData,
+                        startMargin: 57,
+                        onChanged: (value) {
+                          controller.setSelectedShape = value!;
+                        })),
                   ),
-                  buildDropdown("Frequency", selectedFrequency, frequencies,
-                      (value) {
-                    setState(() => selectedFrequency = value!);
-                  }),
-                ],
-              ),
-              SizedBox(height: screenHeight * 0.02),
-
-              // Duration and Dosage
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  buildDropdown("Duration", selectedDuration, durations,
-                      (value) {
-                    setState(() => selectedDuration = value!);
-                  }),
-                  SizedBox(
-                    width: screenWidth * 0.03,
+                  TitledSelectionBox(
+                    title: "Frequency",
+                    child: Obx(()=> DropDownBox(
+                        value: controller.selectedFrequency.value,
+                        items: frequenciesData,
+                        onChanged: (value) {
+                          controller.setSelectedFrequency = value!;
+                        }),
+                     ),
                   ),
-                  buildCounter("Dosage Per Time", dosagePerTime, "dosage"),
-                ],
-              ),
-              SizedBox(height: screenHeight * 0.02),
-
-              // Times Per Day and Next Alarm
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  buildCounter("Times Per Day", timesPerDay, "times"),
-                  SizedBox(
-                    width: screenWidth * 0.03,
-                  ),
-                  buildTimePicker(),
-                ],
-              ),
-              SizedBox(height: screenHeight * 0.02),
-
-              // Notes
-              Text(
-                "Notes",
-              ),
-              SizedBox(height: screenHeight * 0.01),
-              TextFormField(
-                maxLines: 3,
-                decoration: InputDecoration(
-                  fillColor: MyStyles.whiteColor,
-                  filled: true,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
+                  ],
                 ),
               ),
+          
+              // Duration and Dosage
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 28.w),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    TitledSelectionBox(
+                      title: "Duration",
+                      child: Obx(()=> DropDownBox(
+                          value: controller.selectedDuration.value,
+                          items: durationsData,
+                          startMargin: 57,
+                          onChanged: (value) {
+                            controller.setSelectedDuration = value!;
+                          }),
+                    )
+                ),
+                    TitledSelectionBox(
+                      title: "Dosage Per Time",
+                      child: Obx(() => CounterBox(
+                        plusTap: (){
+                          controller.dosageNumberPLus();
+                        },
+                        count: controller.dosageNumber.value,
+                        minusTap: (){
+                          controller.dosageNumberMinus();
+                        },
+                      )),
+                    ),
+                  ],
+                ),
+              ),
+          
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 28.w),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    TitledSelectionBox(
+                      title: "Times Per Day",
+                      child: Obx(() => CounterBox(
+                        plusTap: (){
+                          controller.timesPerDayPLus();
+                        },
+                        count: controller.timesPerDay.value,
+                        minusTap: (){
+                          controller.timesPerDayMinus();
+                        },
+                      )),
+                    ),
+                    TitledSelectionBox(
+                      title: "Next Alarm",
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Obx(()=> GestureDetector(
+                            onTap: ()=> controller.pickTime(context),
+                            child: Text(
+                              controller.selectedTime.value.format(context),
+                                style: Theme.of(context).textTheme.titleMedium!.copyWith(color: MyStyles.blackColor, fontSize: 16.sp)),                          ),
+                          ),
+                          Obx(()=>  DefaultSwitchButton(
+                            onChanged: (value) {
+                              controller.setAlarm = value;
+                            },
+                            value: controller.enabledAlarm.value,
+                          )),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              TitledTextField(
+                controller: controller.notes,
+                title:"Notes",
+                hintText: "",
+                maxLines: 5
+              ),
+          
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  Widget buildDropdown(String label, String value, List<String> items,
-      ValueChanged<String?> onChanged) {
-    return Flexible(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            label,
-            style: MyStyles.buttonsize(Colors.black),
-          ),
-          SizedBox(height: 8),
-          DropdownButtonFormField<String>(
-            value: value,
-            items: items
-                .map((item) => DropdownMenuItem(
-                value: item,
-                child: Text(item, style: MyStyles.buttonsize(Colors.black),)))
-                .toList(),
-            dropdownColor: Colors.white,
-            onChanged: onChanged,
-            decoration: InputDecoration(
-              fillColor: MyStyles.whiteColor,
-              filled: true,
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget buildCounter(String label, int count, String type) {
-    return Flexible(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            label,
-          ),
-          SizedBox(height: 8),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              buildCounterButton(Icons.remove, () => decrementCounter(type)),
-              Text(
-                '$count',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-              buildCounterButton(Icons.add, () => incrementCounter(type)),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget buildCounterButton(IconData icon, VoidCallback onPressed) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-          padding: EdgeInsets.all(8),
-          shape: CircleBorder(),
-          backgroundColor: MyStyles.maybeCyanColor),
-      child: Icon(icon, color: Colors.black),
-    );
-  }
-
-  Widget buildTimePicker() {
-    return Flexible(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "Next Alarm",
-          ),
-          SizedBox(height: 8),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              GestureDetector(
-                onTap: pickTime,
-                child: Text(
-                  selectedTime.format(context),
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
-              ),
-              DefaultSwitchButton(
-                onChanged: (value) {
-                  setState(() {
-                    alarmEnabled = value;
-                  });
-                },
-                value: alarmEnabled,),
-            ],
-          ),
-        ],
       ),
     );
   }
 }
+

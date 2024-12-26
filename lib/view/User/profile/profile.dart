@@ -1,3 +1,4 @@
+import 'package:doctor/components/authentication/sign_out_button.dart';
 import 'package:doctor/components/doctor/patients/patient_info_header.dart';
 import 'package:doctor/components/profile/menu_item.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,13 @@ class ProfileScreen extends StatelessWidget {
             MenuItem(onTap: (){}, title: "Medical History"),
             MenuItem(onTap: (){}, title: "Medications"),
             MenuItem(onTap: (){}, title: "Family"),
+            Align(
+              alignment: AlignmentDirectional.centerEnd,
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 28.w),
+                child: SignOutButton(),
+              ),
+            )
           ],
         ),
       ),

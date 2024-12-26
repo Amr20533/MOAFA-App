@@ -68,7 +68,48 @@ ThemeData get lightTheme => ThemeData(
       fontWeight: FontWeight.w300,
     ),
   ),
+  dialogBackgroundColor: Colors.white,
+    timePickerTheme: TimePickerThemeData(
+      hourMinuteColor: MyStyles.cyanColor,
+      hourMinuteTextColor: MyStyles.whiteColor,
+      dialHandColor: MyStyles.maybeCyanColor,
+      dialBackgroundColor: MyStyles.cyanColor,
+      dayPeriodColor: MyStyles.cyanColor,
+      dayPeriodTextColor: MyStyles.whiteColor,
+      backgroundColor: MyStyles.whiteColor,
+      dayPeriodBorderSide: BorderSide.none,
+      dialTextStyle: TextStyle(
+        fontSize: 22,
+        fontFamily: 'BarlowSemiCondensed',
+        fontWeight: FontWeight.w700,
+      ),
+      dayPeriodTextStyle: TextStyle(
+        fontSize: 16,
+        fontFamily: 'BarlowSemiCondensed',
+        // color: MyStyles.whiteColor,
+        fontWeight: FontWeight.w400,
+      ),
+      cancelButtonStyle: ButtonStyle(
+        iconColor: WidgetStateProperty.all(MyStyles.maybeCyanColor),
+        textStyle: WidgetStateProperty.all(TextStyle(
+          fontSize: 16,
+          fontFamily: 'BarlowSemiCondensed',
+          color: MyStyles.maybeCyanColor,
+          fontWeight: FontWeight.w400,
+          ),
+        )
+      ),
+      confirmButtonStyle: ButtonStyle(
+        textStyle: WidgetStateProperty.all(TextStyle(
+          fontSize: 16,
+          fontFamily: 'BarlowSemiCondensed',
+          color: MyStyles.maybeCyanColor,
+          fontWeight: FontWeight.w400,
+          ),
+        )
+      ),
 
+    ),
   appBarTheme: AppBarTheme(
     backgroundColor: MyStyles.cyanColor,
     centerTitle: true

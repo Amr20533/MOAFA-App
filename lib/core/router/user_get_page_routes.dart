@@ -4,6 +4,7 @@ import 'package:doctor/core/controllers/authentication/sign_up_controller.dart';
 import 'package:doctor/core/controllers/doctor_controllers/patients_controller.dart';
 import 'package:doctor/core/controllers/doctor_controllers/doctor_profile_controller.dart';
 import 'package:doctor/core/controllers/main/main_view_controller.dart';
+import 'package:doctor/core/controllers/user_controllers/pill_controller.dart';
 import 'package:doctor/utils/static/app_routes.dart';
 import 'package:doctor/view/Doctor/patients/patient_details_screen.dart';
 import 'package:doctor/view/Doctor/authentication/doctor_login.dart';
@@ -34,7 +35,9 @@ List<GetPage<dynamic>>? userGetPageRoutes = [
   GetPage(name: AppRoutes.userSignup, page: () => SingUpScreen(),
     binding: BindingsBuilder(() => Get.lazyReplace(() => SignUpController())),
   ),
-  GetPage(name: AppRoutes.addPill, page: () => AddPillScreen()),
+  GetPage(name: AppRoutes.addPill, page: () => AddPillScreen(),
+    binding: BindingsBuilder(() => Get.lazyPut(() => PillController())),
+  ),
   GetPage(name: AppRoutes.bloodSeekers, page: () => BloodSeekersScreen()),
   GetPage(name: AppRoutes.bloodDonation, page: () => BloodDonationScreen()),
 
