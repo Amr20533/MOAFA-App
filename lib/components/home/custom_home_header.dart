@@ -7,16 +7,15 @@ import 'package:get/get.dart';
 
 class CustomHomeHeader extends StatelessWidget {
   const CustomHomeHeader({
-    super.key, required this.name,
+    super.key, required this.name, required this.onTap,
   });
+  final VoidCallback onTap;
   final String name;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
-        Get.toNamed(AppRoutes.doctorProfile);
-      },
+      onTap: onTap,
       child: Container(
         width: double.infinity,
         height: 94.h,

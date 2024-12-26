@@ -3,6 +3,7 @@ import 'package:doctor/components/doctor/home/upcommint_appointment_tile.dart';
 import 'package:doctor/components/doctor/home/next_appointment_card.dart';
 import 'package:doctor/components/home/see_all_bar.dart';
 import 'package:doctor/core/controllers/main/main_view_controller.dart';
+import 'package:doctor/utils/static/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -17,7 +18,12 @@ class DoctorHomeScreen extends GetView<MainViewController> {
         crossAxisAlignment: CrossAxisAlignment.start,
         spacing: 20.h,
         children: [
-          CustomHomeHeader(name: "Dr. Mahmoud",),
+          CustomHomeHeader(
+            onTap: (){
+              Get.toNamed(AppRoutes.doctorProfile);
+            },
+            name: "Dr. Mahmoud",
+          ),
           NextAppointmentCard(),
           SeeAllBar(
             title: "Upcoming Appointments",

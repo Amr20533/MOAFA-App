@@ -1,6 +1,5 @@
 import 'package:doctor/components/home/category_item_builder.dart';
 import 'package:doctor/components/home/custom_home_header.dart';
-import 'package:doctor/components/doctor/home/next_appointment_card.dart';
 import 'package:doctor/components/home/see_all_bar.dart';
 import 'package:doctor/components/reusable/default_heading_text.dart';
 import 'package:doctor/components/user/user_upcoming_appointment_card.dart';
@@ -20,8 +19,18 @@ class UserHomeScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         spacing: 20.h,
         children: [
-          CustomHomeHeader(name: "Mahmoud",),
+          CustomHomeHeader(
+            onTap: (){
 
+            },
+            name: "Mahmoud",
+          ),
+          SeeAllBar(
+            title: "Upcoming Appointments",
+            seeAllTap: (){
+              Get.toNamed(AppRoutes.userAppointment);
+            },
+          ),
           UserUpcomingAppointmentCard(),
 
           Padding(

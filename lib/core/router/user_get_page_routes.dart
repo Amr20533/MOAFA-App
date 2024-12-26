@@ -1,3 +1,6 @@
+import 'package:doctor/core/controllers/doctor_controllers/appointment_controller.dart';
+import 'package:doctor/core/controllers/user_controllers/request_appointment_controller.dart';
+import 'package:doctor/view/User/appointments/user_appointment_screen.dart';
 import 'package:doctor/core/controllers/animation/welcome_animation_controller.dart';
 import 'package:doctor/core/controllers/authentication/login_controller.dart';
 import 'package:doctor/core/controllers/authentication/sign_up_controller.dart';
@@ -40,6 +43,12 @@ List<GetPage<dynamic>>? userGetPageRoutes = [
   ),
   GetPage(name: AppRoutes.bloodSeekers, page: () => BloodSeekersScreen()),
   GetPage(name: AppRoutes.bloodDonation, page: () => BloodDonationScreen()),
+  GetPage(name: AppRoutes.userAppointment, page: () => UserAppointmentScreen(),
+    bindings: [
+      BindingsBuilder(() => Get.lazyPut(() => AppointmentController())),
+      BindingsBuilder(() => Get.lazyPut(() => RequestAppointmentController()))
+    ],
+  ),
 
 
   GetPage(name: AppRoutes.doctorWelcome, page: () => DoctorWelcomeScreen(),
