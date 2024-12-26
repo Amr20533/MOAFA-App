@@ -22,7 +22,7 @@ class UserUpcomingAppointmentCard extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: 28.w),
       decoration: BoxDecoration(
           color: MyStyles.cyanColor,
-          borderRadius: BorderRadius.circular(10.0)),
+          borderRadius: BorderRadius.circular(10.sp)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

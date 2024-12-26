@@ -7,6 +7,8 @@ class AppRoutes{
   static const String addPill = '/user-add-pill';
   static const String bloodSeekers = '/user-blood-seekers';
   static const String bloodDonation = '/user-blood-donation';
+  static const String bloodBanks = '/user-blood-banks';
+  static const String donationRequest = '/user-donation-request';
   static const String userAppointment = '/user-appointment-view';
 
   /// <<<<<<<<<<<<<<<<<<<<<<< Doctor Routes >>>>>>>>>>>>>>>>>>>>>

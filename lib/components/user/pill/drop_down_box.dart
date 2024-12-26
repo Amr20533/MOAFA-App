@@ -10,9 +10,11 @@ class DropDownBox extends StatelessWidget {
     required this.value,
     required this.items,
     this.onChanged,
+    this.textMaxWidth = 85,
   });
 
   final String value;
+  final double textMaxWidth;
   final double startMargin;
   final List<String> items;
   final void Function(String?)? onChanged;
@@ -30,7 +32,7 @@ class DropDownBox extends StatelessWidget {
             (item) => DropdownMenuItem(
           value: item,
           child: SizedBox(
-            width: 85.w,
+            width: textMaxWidth.w,
             child: Text(
               item,
               style: Theme.of(context).textTheme.titleMedium!.copyWith(
@@ -42,8 +44,7 @@ class DropDownBox extends StatelessWidget {
             ),
           ),
         ),
-      )
-          .toList(),
+      ).toList(),
       icon: Container(
         width: 21.w,
         height: 21.h,

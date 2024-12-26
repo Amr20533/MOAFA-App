@@ -6,6 +6,7 @@ import 'package:doctor/core/controllers/doctor_controllers/patients_controller.d
 import 'package:doctor/core/controllers/doctor_controllers/availability_controller.dart';
 import 'package:doctor/core/controllers/doctor_controllers/doctor_profile_controller.dart';
 import 'package:doctor/core/controllers/main/main_view_controller.dart';
+import 'package:doctor/core/controllers/user_controllers/donation_controller.dart';
 import 'package:doctor/core/controllers/user_controllers/pill_controller.dart';
 import 'package:doctor/core/controllers/user_controllers/request_appointment_controller.dart';
 import 'package:get/get.dart';
@@ -20,6 +21,7 @@ class AppBindings extends Bindings {
     Get.lazyPut<LoginController>(() => LoginController());
     Get.lazyPut<SignUpController>(() => SignUpController());
     Get.lazyPut<PillController>(() => PillController());
+    Get.lazyPut<DonationController>(() => DonationController());
     Get.lazyPut<RequestAppointmentController>(() => RequestAppointmentController());
     Get.lazyPut<AppointmentController>(() => AppointmentController());
     Get.lazyPut<PatientsController>(() => PatientsController());

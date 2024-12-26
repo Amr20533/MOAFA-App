@@ -1,4 +1,5 @@
 import 'package:doctor/core/controllers/doctor_controllers/appointment_controller.dart';
+import 'package:doctor/core/controllers/user_controllers/donation_controller.dart';
 import 'package:doctor/core/controllers/user_controllers/request_appointment_controller.dart';
 import 'package:doctor/view/User/appointments/user_appointment_screen.dart';
 import 'package:doctor/core/controllers/animation/welcome_animation_controller.dart';
@@ -16,6 +17,7 @@ import 'package:doctor/view/Doctor/doctor_main_view.dart';
 import 'package:doctor/view/Doctor/profile/doctor_profile_screen.dart';
 import 'package:doctor/view/User/add_pill.dart';
 import 'package:doctor/view/User/authentication/login.dart';
+import 'package:doctor/view/User/blood_donation/blood_banks_screen.dart';
 import 'package:doctor/view/User/blood_donation/blood_donation.dart';
 import 'package:doctor/view/User/blood_donation/blood_seekers.dart';
 import 'package:doctor/view/User/user_main_view.dart';
@@ -23,6 +25,7 @@ import 'package:doctor/view/start/doctor_welcome_screen.dart';
 import 'package:get/get.dart';
 
 import '../../view/User/authentication/signup.dart';
+import '../../view/User/blood_donation/request_blood_screen.dart';
 import '../../view/start/user_welcome_screen.dart';
 
 List<GetPage<dynamic>>? userGetPageRoutes = [
@@ -42,7 +45,18 @@ List<GetPage<dynamic>>? userGetPageRoutes = [
     binding: BindingsBuilder(() => Get.lazyPut(() => PillController())),
   ),
   GetPage(name: AppRoutes.bloodSeekers, page: () => BloodSeekersScreen()),
-  GetPage(name: AppRoutes.bloodDonation, page: () => BloodDonationScreen()),
+  GetPage(name: AppRoutes.bloodDonation, page: () => BloodDonationScreen(),
+
+  ),
+  GetPage(name: AppRoutes.bloodBanks, page: () => BloodBanksScreen(),
+    binding: BindingsBuilder(() => Get.lazyPut(() => DonationController())),
+
+  ),
+
+  GetPage(name: AppRoutes.donationRequest, page: () => RequestBloodScreen(),
+    binding: BindingsBuilder(() => Get.lazyPut(() => DonationController())),
+  ),
+
   GetPage(name: AppRoutes.userAppointment, page: () => UserAppointmentScreen(),
     bindings: [
       BindingsBuilder(() => Get.lazyPut(() => AppointmentController())),
