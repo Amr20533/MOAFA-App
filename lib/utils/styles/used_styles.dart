@@ -18,6 +18,7 @@ class MyStyles {
   static final Color infoTileColor = Color(0xFFF5FAFF);
   static final Color lightBlue = Colors.lightBlueAccent;
   static final Color donationCardColor = Color(0xfff5F6F9);
+  static final Color subTitleColor = Color(0xFFBEBEBE);
 
   static TextStyle headersize(Color c) =>
       TextStyle(fontSize: 32, color: c, fontWeight: FontWeight.bold);

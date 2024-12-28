@@ -1,9 +1,14 @@
+import 'package:doctor/components/authentication/login/animated_login_blue_circle.dart';
+import 'package:doctor/components/authentication/login/animated_login_cyan_circle.dart';
+import 'package:doctor/components/authentication/default_auth_button.dart';
+import 'package:doctor/components/authentication/login/animated_login_heading.dart';
+import 'package:doctor/components/authentication/login/animated_login_logo.dart';
 import 'package:doctor/components/reusable/textFieldsLoginSignup.dart';
 import 'package:doctor/core/controllers/authentication/login_controller.dart';
 import 'package:doctor/utils/static/app_routes.dart';
 import 'package:doctor/utils/styles/used_styles.dart';
-import 'package:doctor/view/User/authentication/signup.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class LogInScreen extends GetView<LoginController> {
@@ -12,146 +17,119 @@ class LogInScreen extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+      body: SafeArea(
+        child: Stack(
+          alignment: Alignment.center,
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Stack(
+            AnimatedLoginCyanCircle(),
+            AnimatedLoginBlueCircle(),
+            PositionedDirectional(
+              top: 40,
+              end: 20,
+              child: AnimatedLoginLogo()
+            ),
+            PositionedDirectional(
+              top: 135.h,
+              start: 28.w,
+              child: AnimatedLoginHeading()
+            ),
+
+            PositionedDirectional(
+                top: 250.h,
+                start: 0,
+                end: 0,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  spacing: 20.h,
                   children: [
-                    Row(
-                      children: [
-                        Spacer(),
-                        ClipRect(
-                          child: Align(
-                            alignment: AlignmentDirectional.bottomEnd,
-                            heightFactor: 0.4,
-                            child: Image.asset(
-                              "assets/Asset 7@10x.png",
-                              scale: 3,
-                            ),
+                    Obx(() => SlideTransition(
+                      position: controller.loginAnimationController.slideAnimations[0],
+                      child: DefaultTextFormField(
+                        controller: controller.email.value,
+                        label: 'Email Address',
+                        keyboardType: TextInputType.emailAddress,
+                        onChanged: (value) => controller.validateEmail(),
+                      ),
+                    )),
+                    Obx(() {
+                      bool secure = controller.secure.value == true;
+                      return SlideTransition(
+                        position: controller.loginAnimationController.slideAnimations[1],
+                        child: DefaultTextFormField(
+                          controller: controller.password.value,
+                          label: 'Password',
+                          secure: controller.secure.value,
+                          suffixIcon: GestureDetector(
+                            onTap: (){
+                              controller.toggleSecurePassword();
+                            },
+                            child: Icon(secure ? Icons.visibility : Icons.visibility_off, color: MyStyles.grey,),
+                          ),
+                          keyboardType:TextInputType.visiblePassword,
+                          onChanged: (value) => controller.validatePassword(),
+                        ),
+                      );
+                    }),
+                    Obx(() => AnimatedOpacity(
+                      duration: const Duration(seconds: 2),
+                      opacity: controller.loginAnimationController.opacity.value,
+                      child: Align(
+                        alignment: AlignmentDirectional.centerEnd,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 28.w),
+                          child: GestureDetector(
+                            onTap: (){
+
+                            },
+                            child: Text("Forget Password?",
+                                style: Theme.of(context).textTheme.titleSmall!.copyWith(fontSize: 16.sp, color: MyStyles.blackColor)),
                           ),
                         ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Spacer(),
-                        ClipRect(
-                          child: Align(
-                            alignment: AlignmentDirectional.bottomStart,
-                            heightFactor: 0.58,
-                            widthFactor: 0.7,
-                            child: Image.asset(
-                              "assets/Asset 6@10x.png",
-                              scale: 2.9,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Spacer(
-                          flex: 6,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 35),
-                          child: Image.asset(
-                            "assets/Asset 5@10x.png",
-                            scale: 3.8,
-                          ),
-                        ),
-                        Spacer(
-                          flex: 1,
-                        )
-                      ],
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    "Welcome",
-                    style: MyStyles.headersize(MyStyles.blueColor),
-                  ),
-                  Padding(padding: EdgeInsets.fromLTRB(0, 0, 800, 0)),
-                  Text("Please login or Sign up to continue",
-                      style: MyStyles.notessize(MyStyles.grey)),
-                  Obx(() => DefaultTextFormField(
-                    controller: controller.email.value,
-                    label: 'Email or Phone',
-                    keyboardType: TextInputType.emailAddress,
-                  )),
-                  Obx(() {
-                    bool secure = controller.secure.value == true;
-                    return DefaultTextFormField(
-                      controller: controller.password.value,
-                      label: 'Password',
-                      secure: controller.secure.value,
-                      suffixIcon: GestureDetector(
-                        onTap: (){
-                          controller.toggleSecurePassword();
-                        },
-                        child: Icon(secure ? Icons.visibility : Icons.visibility_off, color: MyStyles.grey,),
                       ),
-                      keyboardType:TextInputType.visiblePassword,
-                    );
-                  }),
-                  SizedBox(height: 20),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(200, 0, 5, 0),
-                    child: TextButton(
-                        onPressed: () {},
-                        child: Text("Forget Password",
-                            style: MyStyles.notessize(MyStyles.grey).copyWith(fontSize: 16))),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Get.toNamed(AppRoutes.userMainView);
-                      },
-                      child: Text(
-                        "LOGIN",
-                        style: TextStyle(
-                            fontSize: 25,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        minimumSize: Size(
-                            MediaQuery.of(context).size.width * 0.84,
-                            MediaQuery.of(context).size.height * 0.07),
-                        backgroundColor: MyStyles.blueColor,
-                      ),
-                    ),
-                  ),
-                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                    Text('Don`t have an account? '),
-                    TextButton(
+                    )),
+                    SlideTransition(
+                      position: controller.loginAnimationController.slideAnimations[2],
+                      child: DefaultAuthButton(
                         onPressed: () {
-                          Get.to(SingUpScreen());
+                          controller.login();
                         },
-                        child: Text(
-                          'Sign Up',
-                          style: TextStyle(color: Colors.blue),
-                        )),
-                  ]),
-                ],
-              ),
+                        text: 'SIGN IN',
+                      ),
+                    ),
+                    Obx(() => AnimatedOpacity(
+                      duration: const Duration(seconds: 2),
+                      opacity: controller.loginAnimationController.opacity.value,
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          spacing: 6.w,
+                          children: [
+                            Text('Don`t have an account? ',
+                              style: Theme.of(context).textTheme.titleSmall!.copyWith(fontSize: 16.sp, color: MyStyles.blackColor),
+                            ),
+                            GestureDetector(
+                              onTap: (){
+                                Get.offNamed(AppRoutes.userSignup);
+                              },
+                              child: Text(
+                                'Sign Up',
+                                style: Theme.of(context).textTheme.titleMedium!.copyWith(fontSize: 16.sp, color: MyStyles.blueColor, fontWeight: FontWeight.w600),
+                              ),
+                            ),
+                          ]
+                      ),
+                    )),
+                  ],
+                )
             ),
+
           ],
         ),
       ),
     );
   }
 }
+
+
+
+

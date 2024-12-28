@@ -1,6 +1,6 @@
 import 'package:doctor/utils/styles/used_styles.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DefaultTextFormField extends StatelessWidget {
   const DefaultTextFormField({super.key,
@@ -8,7 +8,8 @@ class DefaultTextFormField extends StatelessWidget {
     this.suffixIcon,
     this.secure = false,
     required this.keyboardType,
-    required this.controller
+    required this.controller,
+    this.onChanged
   });
 
   final String label;
@@ -16,14 +17,18 @@ class DefaultTextFormField extends StatelessWidget {
   final bool secure;
   final TextInputType keyboardType;
   final TextEditingController controller;
+  final Function(String?)? onChanged;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+    return Container(
+      height: 53.h,
+      padding: EdgeInsets.symmetric(horizontal: 28.w,),
       child: TextFormField(
         controller: controller ,
         obscureText: secure,
+        cursorColor: MyStyles.blueColor,
+        style: Theme.of(context).textTheme.titleSmall,
         decoration: InputDecoration(
           labelText: label,
           labelStyle: Theme.of(context).textTheme.titleSmall,
@@ -40,26 +45,9 @@ class DefaultTextFormField extends StatelessWidget {
             borderSide: BorderSide(color: MyStyles.blueColor),
           ),
         ),
+        onChanged: onChanged,
         keyboardType: keyboardType,
       ),
     );
   }
-}
-
-
-Widget pillTextField(
-
-  double screenWidth,
- String label
-) {
-  return TextFormField(
-    decoration: InputDecoration(
-      hintText: label,
-      fillColor: Colors.grey[200],
-      filled: true,
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(screenWidth * 0.02),
-      ),
-    ),
-  );
 }

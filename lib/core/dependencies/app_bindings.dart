@@ -1,3 +1,4 @@
+import 'package:doctor/core/controllers/animation/login_animation_controller.dart';
 import 'package:doctor/core/controllers/animation/welcome_animation_controller.dart';
 import 'package:doctor/core/controllers/authentication/login_controller.dart';
 import 'package:doctor/core/controllers/authentication/sign_up_controller.dart';
@@ -16,6 +17,7 @@ class AppBindings extends Bindings {
   void dependencies() {
     // Get.put(WelcomeAnimationController());
     Get.lazyPut<WelcomeAnimationController>(() => WelcomeAnimationController());
+    Get.lazyPut<LoginAnimationController>(() => LoginAnimationController());
     Get.lazyPut<MainViewController>(() => MainViewController());
     Get.lazyPut<AvailabilityController>(() => AvailabilityController());
     Get.lazyPut<LoginController>(() => LoginController());

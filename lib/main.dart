@@ -1,6 +1,7 @@
 import 'package:doctor/core/dependencies/app_bindings.dart';
 import  'package:doctor/core/router/user_get_page_routes.dart';
 import 'package:doctor/utils/styles/light_theme.dart';
+import 'package:doctor/view/User/authentication/login.dart';
 import 'package:doctor/view/User/blood_donation/blood_donation.dart';
 import 'package:doctor/view/User/user_main_view.dart';
 import 'package:doctor/view/User/profile/profile.dart';
@@ -28,7 +29,8 @@ class MyApp extends StatelessWidget {
           title: 'MOAFA App',
           theme: lightTheme,
           initialBinding: AppBindings(),
-          getPages: userGetPageRoutes,
+          getPages: userGetPageRoutes
+          // home: LogInScreen(),
         );
       },
     );

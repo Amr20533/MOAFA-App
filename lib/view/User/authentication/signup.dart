@@ -1,9 +1,14 @@
+import 'package:doctor/components/authentication/default_auth_button.dart';
+import 'package:doctor/components/authentication/sign_up/animated_signup_blue_circle.dart';
+import 'package:doctor/components/authentication/sign_up/animated_signup_cyan_circle.dart';
+import 'package:doctor/components/authentication/sign_up/animated_signup_heading.dart';
+import 'package:doctor/components/authentication/sign_up/animated_signup_logo.dart';
 import 'package:doctor/components/reusable/textFieldsLoginSignup.dart';
 import 'package:doctor/core/controllers/authentication/sign_up_controller.dart';
 import 'package:doctor/utils/static/app_routes.dart';
 import 'package:doctor/utils/styles/used_styles.dart';
-import 'package:doctor/view/User/authentication/login.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class SingUpScreen extends GetView<SignUpController> {
@@ -12,159 +17,122 @@ class SingUpScreen extends GetView<SignUpController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+      body: SafeArea(
+        child: Stack(
+          alignment: Alignment.center,
           children: [
-            Stack(
-              children: [
-                Row(
-                  children: [
-                    Spacer(),
-                    ClipRect(
-                      child: Align(
-                        alignment: AlignmentDirectional.bottomEnd,
-                        heightFactor: 0.4,
-                        child: Image.asset(
-                          "assets/Asset 7@10x.png",
-                          scale: 3,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Spacer(),
-                    ClipRect(
-                      child: Align(
-                        alignment: AlignmentDirectional.bottomStart,
-                        heightFactor: 0.58,
-                        widthFactor: 0.7,
-                        child: Image.asset(
-                          "assets/Asset 6@10x.png",
-                          scale: 2.9,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Spacer(
-                      flex: 6,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 35),
-                      child: Image.asset(
-                        "assets/Asset 5@10x.png",
-                        scale: 3.8,
-                      ),
-                    ),
-                    Spacer(
-                      flex: 1,
-                    )
-                  ],
-                ),
-              ],
+            AnimatedSignupCyanCircle(),
+            AnimatedSignupBlueCircle(),
+            PositionedDirectional(
+                top: 40,
+                end: 20,
+                child: AnimatedSignupLogo()
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Welcome",
-                    style: MyStyles.headersize(MyStyles.blueColor),
-                  ),
-                  Padding(padding: EdgeInsets.fromLTRB(0, 0, 800, 0)),
-                  Text("Please login or Sign up to continue",
-                      style: MyStyles.notessize(MyStyles.grey)),
-                ],
-              ),
+            PositionedDirectional(
+                top: 135.h,
+                start: 28.w,
+                child: AnimatedSignupHeading()
             ),
-            Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
 
-                  Obx(() => DefaultTextFormField(
-                    controller: controller.nId.value,
-                    label: 'National ID',
-                    keyboardType: TextInputType.number,
-                  )),
+            PositionedDirectional(
+                top: 250.h,
+                start: 0,
+                end: 0,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  spacing: 20.h,
+                  children: [
+                    Obx(() => SlideTransition(
+                      position: controller.signupAnimationController.slideAnimations[0],
+                      child: DefaultTextFormField(
+                        controller: controller.nId.value,
+                        label: 'National ID',
+                        keyboardType: TextInputType.number,
+                        onChanged: (value) => controller.validateNId(),
+                      ),
+                    )),
 
-                  Obx(() => DefaultTextFormField(
-                    controller: controller.email.value,
-                    label: 'Email or Phone',
-                    keyboardType: TextInputType.emailAddress,
-                  )),
+                    Obx(() => SlideTransition(
+                      position: controller.signupAnimationController.slideAnimations[1],
+                      child: DefaultTextFormField(
+                        controller: controller.email.value,
+                        label: 'Email Address',
+                        keyboardType: TextInputType.emailAddress,
+                        onChanged: (value) => controller.validateEmail(),
+                      ),
+                    )),
 
-                  Obx(() => DefaultTextFormField(
-                    controller: controller.phone.value,
-                    label: 'Phone Number',
-                    keyboardType: TextInputType.phone,
-                  )),
-                  Obx(() {
-                    bool secure = controller.secure.value == true;
-                    return DefaultTextFormField(
-                      controller: controller.password.value,
-                      label: 'Password',
-                      secure: controller.secure.value,
-                      suffixIcon: GestureDetector(
-                        onTap: (){
-                          controller.toggleSecurePassword();
-                        },
-                        child: Icon(secure ? Icons.visibility : Icons.visibility_off, color: MyStyles.grey,),
+                    Obx(() => SlideTransition(
+                      position: controller.signupAnimationController.slideAnimations[2],
+                      child: DefaultTextFormField(
+                        controller: controller.phone.value,
+                        label: 'Phone Number',
+                        keyboardType: TextInputType.phone,
+                        onChanged: (value) => controller.validatePhone(),
                       ),
-                      keyboardType:TextInputType.visiblePassword,
-                    );
-                  }),
-                  SizedBox(height: 20),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Get.toNamed(AppRoutes.userLogin);
-                      },
-                      child: Text(
-                        "Signup",
-                        style: TextStyle(
-                            fontSize: 25,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        minimumSize: Size(
-                            MediaQuery.of(context).size.width * 0.84,
-                            MediaQuery.of(context).size.height * 0.07),
-                        backgroundColor: MyStyles.blueColor,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                    Text(
-                      'Already have an account?',
-                      style: MyStyles.notessize(MyStyles.grey),
-                    ),
-                    TextButton(
+                    )),
+                    Obx(() {
+                      bool secure = controller.secure.value == true;
+                      return SlideTransition(
+                        position: controller.signupAnimationController.slideAnimations[3],
+                        child: DefaultTextFormField(
+                          controller: controller.password.value,
+                          label: 'Password',
+                          secure: controller.secure.value,
+                          suffixIcon: GestureDetector(
+                            onTap: (){
+                              controller.toggleSecurePassword();
+                            },
+                            child: Icon(secure ? Icons.visibility : Icons.visibility_off, color: MyStyles.grey,),
+                          ),
+                          keyboardType:TextInputType.visiblePassword,
+                          onChanged: (value) => controller.validatePassword(),
+                        ),
+                      );
+                    }),
+                    SlideTransition(
+                      position: controller.signupAnimationController.slideAnimations[4],
+                      child: DefaultAuthButton(
                         onPressed: () {
-                          Get.to(LogInScreen());
+                          controller.signUp();
                         },
-                        child: Text('Sign in',
-                            style: MyStyles.notessize(MyStyles.blueColor))),
-                  ]),
-                ],
-              ),
+                        text: 'SIGN UP',
+                      ),
+                    ),
+                    Obx(() => AnimatedOpacity(
+                      duration: const Duration(seconds: 2),
+                      opacity: controller.signupAnimationController.opacity.value,
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          spacing: 6.w,
+                          children: [
+                            Text('Already have an account? ',
+                              style: Theme.of(context).textTheme.titleSmall!.copyWith(fontSize: 16.sp, color: MyStyles.blackColor),
+                            ),
+                            GestureDetector(
+                              onTap: (){
+                                Get.offNamed(AppRoutes.userLogin);
+                              },
+                              child: Text(
+                                'SIGN IN',
+                                style: Theme.of(context).textTheme.titleMedium!.copyWith(fontSize: 16.sp, color: MyStyles.blueColor, fontWeight: FontWeight.w600),
+                              ),
+                            ),
+                          ]
+                      ),
+                    )),
+                  ],
+                )
             ),
+
           ],
         ),
       ),
     );
   }
 }
+
+
+
+

@@ -1,3 +1,5 @@
+import 'package:doctor/core/controllers/animation/login_animation_controller.dart';
+import 'package:doctor/core/controllers/animation/signup_animation_controller.dart';
 import 'package:doctor/core/controllers/doctor_controllers/appointment_controller.dart';
 import 'package:doctor/core/controllers/user_controllers/donation_controller.dart';
 import 'package:doctor/core/controllers/user_controllers/request_appointment_controller.dart';
@@ -36,10 +38,16 @@ List<GetPage<dynamic>>? userGetPageRoutes = [
     binding: BindingsBuilder(() => Get.lazyPut(() => MainViewController())),
   ),
   GetPage(name: AppRoutes.userLogin, page: () => LogInScreen(),
-    binding: BindingsBuilder(() => Get.lazyReplace(() => LoginController())),
+    bindings: [
+      BindingsBuilder(() => Get.lazyReplace(() => LoginController())),
+      BindingsBuilder(() => Get.lazyReplace(() => LoginAnimationController())),
+    ],
   ),
   GetPage(name: AppRoutes.userSignup, page: () => SingUpScreen(),
-    binding: BindingsBuilder(() => Get.lazyReplace(() => SignUpController())),
+    bindings: [
+      BindingsBuilder(() => Get.lazyReplace(() => SignUpController())),
+      BindingsBuilder(() => Get.lazyReplace(() => SignupAnimationController())),
+    ],
   ),
   GetPage(name: AppRoutes.addPill, page: () => AddPillScreen(),
     binding: BindingsBuilder(() => Get.lazyPut(() => PillController())),
@@ -69,10 +77,16 @@ List<GetPage<dynamic>>? userGetPageRoutes = [
     binding: BindingsBuilder(() => Get.lazyReplace(() => WelcomeAnimationController())),
   ),
   GetPage(name: AppRoutes.doctorLogin, page: () => DoctorLoginScreen(),
-    binding: BindingsBuilder(() => Get.lazyReplace(() => LoginController())),
+    bindings: [
+      BindingsBuilder(() => Get.lazyReplace(() => LoginController())),
+      BindingsBuilder(() => Get.lazyReplace(() => LoginAnimationController())),
+    ],
   ),
   GetPage(name: AppRoutes.doctorSignup, page: () => DoctorSingUpScreen(),
-    binding: BindingsBuilder(() => Get.lazyPut(() => SignUpController())),
+    bindings: [
+      BindingsBuilder(() => Get.lazyReplace(() => SignUpController())),
+      BindingsBuilder(() => Get.lazyReplace(() => SignupAnimationController())),
+    ],
   ),
   GetPage(name: AppRoutes.doctorMainView, page: () => DoctorMainView(),
     binding: BindingsBuilder(() => Get.lazyReplace(() => MainViewController())),

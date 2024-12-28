@@ -12,4 +12,6 @@ class AppAssets{
   static const String clinics = '$assetPath/Asset 28@10x.png';
   static const String radiology = '$assetPath/Asset 27@10x.png';
   static const String lab = '$assetPath/Asset 30@10x.png';
+
+  static const String alert = '$assetPath/alert_illustration.png';
 }
